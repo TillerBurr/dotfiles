@@ -9,7 +9,7 @@ fpath+=~/.zfunc
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME=powerlevel10k/powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -46,7 +46,6 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
@@ -129,5 +128,7 @@ alias fix-zsh-plugins="find ~/.oh-my-zsh/ -type f -print0 | xargs -0 sed -i -e '
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
 ENHANCD_HOOK_AFTER_CD='ls -A';export ENHANCD_HOOK_AFTER_CD
-source $ZSH_CUSTOM/plugins/zsh-poetry/poetry.zsh
+#source $ZSH_CUSTOM/plugins/zsh-poetry/poetry.zsh
 autoload -U compinit && compinit -u
+#source ~/.purepower
+source ~/.powerlevelrc
