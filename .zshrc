@@ -88,8 +88,18 @@ zsh-vscode)
 #
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
+#
 # User configuration
-
+#
+#
+#
+#
+#
+#https://fontawesome.com/cheatsheet
+#
+#
+#
+#
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
