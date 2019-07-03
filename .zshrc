@@ -79,12 +79,19 @@ poetry
 appup
 autojump
 autoupdate
-emoji-cli
-zsh-vscode)
-#enchancd
+#emoji-cli
+vscode)
+#poetry mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
+#appup git clone https://github.com/Cloudstek/zsh-plugin-appup.git "$ZSH_CUSTOM/plugins/appup"
+#autoupdate git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
+#emoji-cli git clone https://github.com/b4b4r07/emoji-cli ~/emoji-cli && cd emoji-cli && source ./emoji-cli/emoji-cli.zsh
+#autojump git clone git://github.com/wting/autojump.git ~/autojump && cd autojump && ./install.py
+#enchancd git clone https://github.com/b4b4r07/enhancd ~/enhancd
 #nerdfonts
 #materialshell
 #fzf for enhancd
+#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#~/.fzf/install
 #
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
