@@ -80,7 +80,8 @@ appup
 autojump
 autoupdate
 emoji-cli
-zsh-vscode)
+zsh-vscode
+tmux)
 #enchancd
 #nerdfonts
 #materialshell
