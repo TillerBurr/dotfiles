@@ -79,13 +79,24 @@ poetry
 appup
 autojump
 autoupdate
+
 emoji-cli
-zsh-vscode
-tmux)
-#enchancd
+tmux
+vscode)
+#enchanc
+#poetry mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
+#appup git clone https://github.com/Cloudstek/zsh-plugin-appup.git "$ZSH_CUSTOM/plugins/appup"
+#autoupdate git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
+#emoji-cli git clone https://github.com/b4b4r07/emoji-cli ~/emoji-cli && cd emoji-cli && source ./emoji-cli/emoji-cli.zsh
+#autojump git clone git://github.com/wting/autojump.git ~/autojump && cd autojump && ./install.py
+#enchancd git clone https://github.com/b4b4r07/enhancd $ZSH_CUSTOM/plugins/enhancd
+#powerlevel10k git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
 #nerdfonts
 #materialshell
 #fzf for enhancd
+#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#~/.fzf/install
 #
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
@@ -135,6 +146,7 @@ alias python='python3.7'
 export PATH="$HOME/.poetry/bin:$PATH"
 alias pip3='python3 -m pip --user'
 alias fix-zsh-plugins="find ~/.oh-my-zsh/ -type f -print0 | xargs -0 sed -i -e 's/\r$//'"
+function fix-zsh (){find $1  | xargs dos2unix}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
