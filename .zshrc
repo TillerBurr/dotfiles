@@ -135,23 +135,27 @@ source $ZSH_CUSTOM/plugins/enhancd/init.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+#export DISPLAY=127.0.0.1:0.0
+
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOCONNECT=true
+
 export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_TLS_VERIFY=1
-export COMPOSE_TLS_VERSION=TLSv1_2
+#export COMPOSE_TLS_VERSION=TLSv1_2
 export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
 export DOCKER_MACHINE_NAME=dev
 export COMPOSE_CONVERT_WINDOWS_PATHS=true
-alias python3='python3.7'
-alias python='python3.7'
+
 export PATH="$HOME/.poetry/bin:$PATH"
 alias pip3='python3 -m pip --user'
 alias fix-zsh-plugins="find ~/.oh-my-zsh/ -type f -print0 | xargs -0 sed -i -e 's/\r$//'"
-function fix-zsh (){find $1  | xargs dos2unix}
 
+function fix-zsh (){find $1  | xargs dos2unix}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
 ENHANCD_HOOK_AFTER_CD='ls -A';export ENHANCD_HOOK_AFTER_CD
-#source $ZSH_CUSTOM/plugins/zsh-poetry/poetry.zsh
+
 autoload -U compinit && compinit -u
-#source ~/.purepower
 source ~/.powerlevelrc
