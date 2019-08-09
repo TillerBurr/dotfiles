@@ -1,1 +1,1 @@
-C:\Windows\System32\wsl.exe -e "sudo /usr/sbin/sshd -D"
+C:\Windows\System32\wsl.exe -u root service ssh start
