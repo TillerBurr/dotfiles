@@ -79,19 +79,18 @@ poetry
 appup
 autojump
 autoupdate
-
-emoji-cli
 tmux
 vscode)
-#enchanc
+
 #poetry mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
 #appup git clone https://github.com/Cloudstek/zsh-plugin-appup.git "$ZSH_CUSTOM/plugins/appup"
 #autoupdate git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
-#emoji-cli git clone https://github.com/b4b4r07/emoji-cli ~/emoji-cli && cd emoji-cli && source ./emoji-cli/emoji-cli.zsh
+#emoji-cli git clone https://github.com/b4b4r07/emoji-cli $ZSH_CUSTOM/plugins/emoji-cli
 #autojump git clone git://github.com/wting/autojump.git ~/autojump && cd autojump && ./install.py
 #enchancd git clone https://github.com/b4b4r07/enhancd $ZSH_CUSTOM/plugins/enhancd
 #powerlevel10k git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-
+#emojify sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojify/master/emojify -o /usr/local/bin/emojify && chmod +x /usr/local/bin/emojify"
+#docker-compose git clone https://github.com/sroze/docker-compose-zsh-plugin.git $ZSH_CUSTOM/plugins/docker-compose
 #nerdfonts
 #materialshell
 #fzf for enhancd
@@ -100,7 +99,8 @@ vscode)
 #
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
-#
+source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github.com/wfxr/forgit.git $ZSH_CUSTOM/plugins/forgit
+source $ZSH_CUSTOM/plugins/emoji-cli/emoji-cli.zsh 
 # User configuration
 #
 #
@@ -143,7 +143,7 @@ ZSH_TMUX_AUTOCONNECT=true
 
 export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_TLS_VERIFY=1
-#export COMPOSE_TLS_VERSION=TLSv1_2
+export COMPOSE_TLS_VERSION=TLSv1_2
 export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
 export DOCKER_MACHINE_NAME=dev
 export COMPOSE_CONVERT_WINDOWS_PATHS=true
