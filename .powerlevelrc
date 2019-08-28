@@ -50,7 +50,7 @@
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh context dir virtualenv vcs)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh dir virtualenv vcs)
 
 else
 
@@ -119,4 +119,3 @@ POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
 
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 
-POWERLEVEL9K_GITSTATUS_DIR=/home/tbaur/.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/

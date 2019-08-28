@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/tbaur/.oh-my-zsh"
+export ZSH="/home/$USER/.oh-my-zsh"
 fpath+=~/.zfunc
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -61,7 +61,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-[[ -s /home/tbaur/.autojump/etc/profile.d/autojump.sh ]] && source /home/tbaur/.autojump/etc/profile.d/autojump.sh
+#[[ -s /home/ubuntu/.autojump/etc/profile.d/autojump.sh ]] && source /home/ubuntu/.autojump/etc/profile.d/autojump.sh
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -76,8 +76,8 @@ docker-compose
 docker
 python
 poetry
-appup
-autojump
+#appup
+#autojump
 autoupdate
 tmux
 vscode)
@@ -100,7 +100,7 @@ vscode)
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
 source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github.com/wfxr/forgit.git $ZSH_CUSTOM/plugins/forgit
-source $ZSH_CUSTOM/plugins/emoji-cli/emoji-cli.zsh 
+#source $ZSH_CUSTOM/plugins/emoji-cli/emoji-cli.zsh 
 # User configuration
 #
 #
