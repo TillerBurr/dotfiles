@@ -281,8 +281,7 @@ bind - split-window -v
 unbind '"'
 unbind %
 # start with mouse mode enabled
-#set -g mouse on
-
+set -g mouse on
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi

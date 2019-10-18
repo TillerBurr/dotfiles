@@ -141,11 +141,11 @@ source $ZSH_CUSTOM/plugins/emoji-cli/emoji-cli.zsh
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=true
 
-export DOCKER_HOST=tcp://192.168.99.100:2376
-export DOCKER_TLS_VERIFY=1
-export COMPOSE_TLS_VERSION=TLSv1_2
-export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
-export DOCKER_MACHINE_NAME=dev
+export DOCKER_HOST=tcp://localhost:2375
+#export DOCKER_TLS_VERIFY=1
+#export COMPOSE_TLS_VERSION=TLSv1_2
+#export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
+#export DOCKER_MACHINE_NAME=dev
 export COMPOSE_CONVERT_WINDOWS_PATHS=true
 
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -160,3 +160,4 @@ ENHANCD_HOOK_AFTER_CD='ls -A';export ENHANCD_HOOK_AFTER_CD
 autoload -U compinit && compinit -u
 source ~/.powerlevelrc
 export PATH=/usr/bin:$PATH
+export TMPDIR=/tmp
