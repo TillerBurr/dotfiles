@@ -161,3 +161,6 @@ autoload -U compinit && compinit -u
 source ~/.powerlevelrc
 export PATH=/usr/bin:$PATH
 export TMPDIR=/tmp
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
