@@ -76,12 +76,15 @@ docker-compose
 docker
 python
 poetry
-#appup
+zsh-syntax-highlighting
 #autojump
+zsh-autosuggestions
 autoupdate
 tmux
 vscode)
 
+#zsh-autosuggestions git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 #poetry mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
 #appup git clone https://github.com/Cloudstek/zsh-plugin-appup.git "$ZSH_CUSTOM/plugins/appup"
 #autoupdate git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
@@ -141,12 +144,12 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=true
 
-export DOCKER_HOST=tcp://localhost:2375
+#export DOCKER_HOST=tcp://localhost:2375
 #export DOCKER_TLS_VERIFY=1
 #export COMPOSE_TLS_VERSION=TLSv1_2
 #export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
 #export DOCKER_MACHINE_NAME=dev
-export COMPOSE_CONVERT_WINDOWS_PATHS=true
+#export COMPOSE_CONVERT_WINDOWS_PATHS=true
 
 export PATH="$HOME/.poetry/bin:$PATH"
 alias pip3='python3 -m pip --user'
@@ -164,3 +167,4 @@ export TMPDIR=/tmp
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+#source /home/tbaur/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
