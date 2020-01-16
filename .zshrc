@@ -154,7 +154,7 @@ ZSH_TMUX_AUTOCONNECT=true
 
 export PATH="$HOME/.poetry/bin:$PATH"
 alias pip3='python3 -m pip --user'
-alias fix-zsh-plugins="find ~/.oh-my-zsh/ -type f -print0 | xargs -0 sed -i -e 's/\r$//'"
+alias fix-zsh-plugins="find ~/.oh-my-zsh/custom-type f -print0 | xargs -0 sed -i -e 's/\r$//'"
 function clip (){cat $1 | clip.exe}
 function fix-zsh (){find $1  | xargs dos2unix}
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
