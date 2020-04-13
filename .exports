@@ -1,0 +1,4 @@
+#! /bin/zsh
+export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=/usr/bin:$PATH
+export TMPDIR=/tmp

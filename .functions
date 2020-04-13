@@ -1,0 +1,3 @@
+#! /bin/zsh
+function clip (){cat $1 | clip.exe}
+function fix-zsh (){find $1  | xargs dos2unix}
