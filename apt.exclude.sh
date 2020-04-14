@@ -23,11 +23,12 @@ apt install nodejs -y
 apt install yarn -y
 # Golang
 #add-apt-repository ppa:longsleep/golang-backports
+apt install golang-go -y
 # Python
 apt install python3.7
 apt install python3.8
 apt update -y
-#apt install golang-go -y
+
 
 
 # ---------------------------------------------
