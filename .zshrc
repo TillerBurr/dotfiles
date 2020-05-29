@@ -155,7 +155,7 @@ ZSH_TMUX_AUTOCONNECT=true
 #export DOCKER_MACHINE_NAME=dev
 #export COMPOSE_CONVERT_WINDOWS_PATHS=true
 
-
+[[ $TMUX = ""  ]] && export TERM="xterm-256color"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
