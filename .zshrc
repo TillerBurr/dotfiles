@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -145,8 +152,8 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 #export DISPLAY=127.0.0.1:0.0
 
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOCONNECT=true
+#ZSH_TMUX_AUTOSTART=true
+#ZSH_TMUX_AUTOCONNECT=true
 
 #export DOCKER_HOST=tcp://localhost:2375
 #export DOCKER_TLS_VERIFY=1
@@ -155,8 +162,9 @@ ZSH_TMUX_AUTOCONNECT=true
 #export DOCKER_MACHINE_NAME=dev
 #export COMPOSE_CONVERT_WINDOWS_PATHS=true
 
-[[ $TMUX = ""  ]] && export TERM="xterm-256color"
+[[ tty -s  ]] && export TERM="screen-256color"
 
+[[ ! tty -s  ]] && export TERM="xterm-256color"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
 ENHANCD_HOOK_AFTER_CD='ls -A';export ENHANCD_HOOK_AFTER_CD
@@ -171,12 +179,11 @@ source ~/.powerlevelrc
 #source /home/tbaur/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+[["$(whoami)"=="tbaur"]] && [ -z "$(ps -ef | grep cron | grep -v grep)" ] && sudo /etc/init.d/cron start && export PATH="$PATH:/home/tbaur/.local/bin"
 
-[ -z "$(ps -ef | grep cron | grep -v grep)" ] && sudo /etc/init.d/cron start
+
+export PATH="/home/ubuntu/.pyenv/bin:$PATH"
+[[which pyenv]] && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
 
 # Created by `userpath` on 2020-05-01 16:27:48
-export PATH="$PATH:/home/tbaur/.local/bin"
 export PATH="$(yarn global bin):$PATH"
