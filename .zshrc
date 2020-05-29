@@ -3,6 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
+export PATH="$HOME/bin:$PATH"
+source ~/.exports
+source ~/.aliases
+
+source ~/.functions
 fpath+=~/.zfunc
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -76,20 +81,22 @@ docker-compose
 docker
 python
 poetry
-#appup
+zsh-syntax-highlighting
 #autojump
+zsh-autosuggestions
 autoupdate
-tmux
 vscode)
-
-#poetry mkdir $ZSH/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
+#k  git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+#zsh-autosuggestions git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+#zsh-syntax-highlighting git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+#poetry mkdir $ZSH_CUSTOM/plugins/poetry && poetry completions zsh > $ZSH/plugins/poetry/_poetry
 #appup git clone https://github.com/Cloudstek/zsh-plugin-appup.git "$ZSH_CUSTOM/plugins/appup"
 #autoupdate git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ~/.oh-my-zsh/custom/plugins/autoupdate
 #emoji-cli git clone https://github.com/b4b4r07/emoji-cli $ZSH_CUSTOM/plugins/emoji-cli
 #autojump git clone git://github.com/wting/autojump.git ~/autojump && cd autojump && ./install.py
 #enchancd git clone https://github.com/b4b4r07/enhancd $ZSH_CUSTOM/plugins/enhancd
-#powerlevel10k git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-#emojify sudo sh -c "curl https://raw.githubusercontent.com/mrowa44/emojify/master/emojify -o /usr/local/bin/emojify && chmod +x /usr/local/bin/emojify"
+#powerlevel10k git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+#emojify sh -c "curl https://raw.githubusercontent.com/mrowa44/emojify/master/emojify -o /usr/local/bin/emojify && chmod +x /usr/local/bin/emojify"
 #docker-compose git clone https://github.com/sroze/docker-compose-zsh-plugin.git $ZSH_CUSTOM/plugins/docker-compose
 #nerdfonts
 #materialshell
@@ -100,7 +107,7 @@ vscode)
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/enhancd/init.sh
 source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github.com/wfxr/forgit.git $ZSH_CUSTOM/plugins/forgit
-#source $ZSH_CUSTOM/plugins/emoji-cli/emoji-cli.zsh 
+
 # User configuration
 #
 #
@@ -141,30 +148,31 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github
 ZSH_TMUX_AUTOSTART=true
 ZSH_TMUX_AUTOCONNECT=true
 
-export DOCKER_HOST=tcp://localhost:2375
+#export DOCKER_HOST=tcp://localhost:2375
 #export DOCKER_TLS_VERIFY=1
 #export COMPOSE_TLS_VERSION=TLSv1_2
 #export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
 #export DOCKER_MACHINE_NAME=dev
-export COMPOSE_CONVERT_WINDOWS_PATHS=true
+#export COMPOSE_CONVERT_WINDOWS_PATHS=true
 
-export PATH="$HOME/.poetry/bin:$PATH"
-alias pip3='python3 -m pip --user'
-alias fix-zsh-plugins="find ~/.oh-my-zsh/ -type f -print0 | xargs -0 sed -i -e 's/\r$//'"
-function clip (){cat $1 | clip.exe}
-function fix-zsh (){find $1  | xargs dos2unix}
+
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 ENHANCD_FILTER=fzy:fzf; export ENHANCD_FILTER
 ENHANCD_HOOK_AFTER_CD='ls -A';export ENHANCD_HOOK_AFTER_CD
 
 autoload -U compinit && compinit -u
 source ~/.powerlevelrc
-export PATH=/usr/bin:$PATH
-export TMPDIR=/tmp
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#source /home/tbaur/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+[ -z "$(ps -ef | grep cron | grep -v grep)" ] && sudo /etc/init.d/cron start
