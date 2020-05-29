@@ -46,8 +46,33 @@ bootstrap_vim() {
   ./vim.bootstrap.exclude.sh
 }
 
+install_poetry(){
+	echo "$PROMPT This will install Poetry"
+	echo "$PROMPT Proceed? (y/n)"
+	read resp
+		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+					echo "$PROMPT Installing... This may take a while..."
+					sh ./poetry.exclude.sh
+		else
+					echo "$PROMPT Poetry installation cancelled by user"
+		fi
+}
+
+install_pyenv(){
+		echo "$PROMPT This will install Pyenv"
+		echo "$PROMPT Proceed? (y/n)"
+		read resp
+		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
+					echo "$PROMPT Installing... This may take a while..."
+					sh ./pyenv.exclude.sh
+		else
+					echo "$PROMPT Pyenv installation cancelled by user"
+		fi
+}
 
 link
 install_tools
 install_oh_my_zsh_plugins
 bootstrap_vim
+install_pyenv
+install_poetry
