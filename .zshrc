@@ -176,3 +176,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 [ -z "$(ps -ef | grep cron | grep -v grep)" ] && sudo /etc/init.d/cron start
+
+# Created by `userpath` on 2020-05-01 16:27:48
+export PATH="$PATH:/home/tbaur/.local/bin"
+export PATH="$(yarn global bin):$PATH"
