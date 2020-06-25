@@ -150,8 +150,12 @@ source $ZSH_CUSTOM/plugins/forgit/forgit.plugin.zsh #   git clone https://github
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-#export DISPLAY=127.0.0.1:0.0
-
+#export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export DISPLAY=$(cat /etc/resolv.conf | grep name | cut -d' ' -f2):0.0
+#export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+export LIBGL_ALWAYS_INDIRECT=1
+#export DISPLAY=localhost:0.0
+#export DISPLAY
 #ZSH_TMUX_AUTOSTART=true
 #ZSH_TMUX_AUTOCONNECT=true
 
