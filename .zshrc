@@ -165,7 +165,7 @@ export LIBGL_ALWAYS_INDIRECT=1
 #export DOCKER_CERT_PATH=/c/Users/tbaur/.docker/machine/machines/dev
 #export DOCKER_MACHINE_NAME=dev
 #export COMPOSE_CONVERT_WINDOWS_PATHS=true
-
+export GPG_TTY=$(tty)
 #[[ tty -s  ]] && export TERM="screen-256color"
 
 #[[ ! tty -s  ]] && export TERM="xterm-256color"
