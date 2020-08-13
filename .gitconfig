@@ -28,3 +28,7 @@
 	filemode = false
 [credential]
 	helper = /c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

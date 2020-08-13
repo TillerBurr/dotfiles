@@ -1,5 +1,12 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
+## confirmations, etc.) must go above this block; everything else may go below.
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+ # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -185,7 +192,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 #[[$USER=="tbaur"]] && [ -z "$(ps -ef | grep cron | grep -v grep)" ] && sudo /etc/init.d/cron start && export PATH="$PATH:/home/tbaur/.local/bin"
 
-
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/home/ubuntu/.pyenv/bin:$PATH"
 eval "$(pyenv init -)" #&& eval "$(pyenv virtualenv-init -)"
 
