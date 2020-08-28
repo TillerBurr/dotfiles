@@ -93,9 +93,13 @@ cp
 docker-machine
 docker-compose
 docker
+supervisor
+yarn
+#thefuck
 python
 poetry
 zsh-syntax-highlighting
+#pyenv
 #autojump
 zsh-autosuggestions
 autoupdate
