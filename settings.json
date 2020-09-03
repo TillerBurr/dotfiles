@@ -29,7 +29,8 @@
         {
             // Put settings here that you want to apply to all profiles.
             "colorScheme": "vscodeTheme",
-            "fontFace": "CaskaydiaCove NF"
+            "fontFace": "CaskaydiaCove NF",
+            "fontSize":10
         },
         "list":
         [
