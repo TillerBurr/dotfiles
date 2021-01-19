@@ -12,3 +12,4 @@ sh -c "curl https://raw.githubusercontent.com/mrowa44/emojify/master/emojify -o 
 git clone https://github.com/sroze/docker-compose-zsh-plugin.git $ZSH_CUSTOM/plugins/docker-compose
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && . ~/.fzf/install
 git clone https://github.com/wfxr/forgit.git $ZSH_CUSTOM/plugins/forgit
+git clone "https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv.git" "$ZSH_CUSTOM/plugins/autoswitch_virtualenv"

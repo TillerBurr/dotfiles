@@ -6,7 +6,7 @@ link () {
 	read resp
 	# TODO - regex here?
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md' ) ; do
+		for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|\zshrc.d' ) ; do
 			ln -sv "$PWD/$file" "$HOME"
 		done
 		# TODO: source files here?
@@ -43,7 +43,7 @@ install_oh_my_zsh_plugins() {
 
 
 bootstrap_vim() {
-  ./vim.bootstrap.exclude.sh
+  sh /vim.bootstrap.exclude.sh
 }
 
 install_poetry(){
