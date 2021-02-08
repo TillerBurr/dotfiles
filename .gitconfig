@@ -3,6 +3,7 @@
 # Please adapt and uncomment the following lines:
 	name = Tyler Baur
 	email = tbaur@teuteberg.com
+	signingkey = 1EA7C39B0D6AB9DD
 
 
 [alias]
