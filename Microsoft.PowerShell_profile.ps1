@@ -1,6 +1,7 @@
 Import-Module posh-git
 Import-Module oh-my-posh
-Set-Theme Paradox
+
+
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
         [Console]::InputEncoding = [Console]::OutputEncoding = $OutputEncoding = [System.Text.Utf8Encoding]::new()
@@ -13,3 +14,6 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 try { $null = gcm pshazz -ea stop; pshazz init 'default' } catch { }
+
+
+Set-PoshPrompt -Theme powerlevel10k_classic
