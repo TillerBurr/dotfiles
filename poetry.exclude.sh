@@ -1,7 +1,7 @@
 #! /bin/zsh
 echo "Installing pyenv for easy setup of interpreters"
-curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py > get-poetry.py
-python get-poetry.py
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+
 
 
 

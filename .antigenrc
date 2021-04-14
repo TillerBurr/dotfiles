@@ -1,0 +1,30 @@
+# Load oh-my-zsh library
+antigen use oh-my-zsh
+
+# Load bundles from the default repo (oh-my-zsh)
+antigen bundle git
+antigen bundle command-not-found
+antigen bundle docker
+antigen bundle pyenv
+antigen bundle yarn
+antigen bundle fabric
+antigen bundle supervisor
+antigen bundle colorize
+
+# Load bundles from external repos
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
+antigen bundle wfxr/forgit
+antigen bundle darvid/zsh-poetry
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+antigen bundle StackExchange/blackbox
+antigen bundle willghatch/zsh-cdr
+
+
+# Select theme
+antigen theme romkatv/powerlevel10k
+
+# Tell Antigen that you're done
+antigen apply

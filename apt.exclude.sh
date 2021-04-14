@@ -73,7 +73,7 @@ apt install tmux -y
 apt install zsh -y
 chsh -s $(which zsh)
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # The Fire Code font
 #apt install fonts-firacode -y
@@ -104,7 +104,7 @@ apt install cowsay -y
 
 # Multicolored text output -y
 apt install lolcat -y
-
+apt install fzy
 
 # Cleanup the cache (TODO: set up a cron to do this)
 apt clean
