@@ -1,6 +1,9 @@
 Import-Module posh-git
 Import-Module oh-my-posh
-
+Import-Module PSReadLine
+Set-PSReadLineOption -PredictionSource History
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Windows
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
@@ -14,6 +17,5 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 try { $null = gcm pshazz -ea stop; pshazz init 'default' } catch { }
-
-
+Import-Module -Name Terminal-Icons
 Set-PoshPrompt -Theme powerlevel10k_classic
