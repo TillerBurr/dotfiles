@@ -6,7 +6,7 @@ link () {
 	read resp
 	# TODO - regex here?
 	if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-		for file in $( ls -A | grep -vE '\*.exclude*|\.git$|\.gitignore|.*.md|\zshrc.d|\bin\settings.json|sshd.*|*/ps1|.private' ) ; do
+		for file in $( ls -A | grep -vE '\*.exclude*|\.git$|\.gitignore|.*.md|\zshrc.d|\bin|settings.json|sshd.*|*/ps1|.private|VSCode' ) ; do
 			ln -sv "$PWD/$file" "$HOME"
 		done
 		# TODO: source files here?
