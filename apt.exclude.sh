@@ -38,16 +38,9 @@ apt update -y
 # Git, obviously
 apt install git -y
 
-# Docker for containerization
-# Official installation instructions: https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
 apt install apt-transport-https ca-certificates curl software-properties-common -y
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-#add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-#apt update -y
-#apt install docker-ce docker-ce-cli containerd.io -y
-#echo "$PROMPT Verifying docker installation using a hello world container..."
-# Verify the installaiton
-#docker run hello-world
+
 
 # Docker Compose
 #apt install docker-compose -y
@@ -75,12 +68,10 @@ chsh -s $(which zsh)
 
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# The Fire Code font
-#apt install fonts-firacode -y
 
-sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
-libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \
+libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
+libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 # My favorite text editor: VS Code
 # Installation instructions: https://code.visualstudio.com/docs/setup/linux
 # curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
