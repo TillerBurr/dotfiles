@@ -21,7 +21,7 @@ antigen bundle darvid/zsh-poetry
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle StackExchange/blackbox
 antigen bundle willghatch/zsh-cdr
-
+antigen bundle thuandt/zsh-pipx
 
 # Select theme
 antigen theme romkatv/powerlevel10k

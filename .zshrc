@@ -1,6 +1,11 @@
 #! /bin/zsh
 #
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+source ~/antigen.zsh
+antigen init ~/.antigenrc
 # # get the directory where this file is located
 _custom_zsh_config_base="${${(%):-%x}:A:h}"
 # load all our config files
@@ -8,11 +13,7 @@ for file ($_custom_zsh_config_base/zshrc.d/*.zsh(N)); do
  source $file
  done
 #
-source ~/antigen.zsh
+#source ~/antigen.zsh
 
 # Load Antigen configurations
-antigen init ~/.antigenrc
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# antigen init ~/.antigenrc

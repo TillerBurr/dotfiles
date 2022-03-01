@@ -100,4 +100,5 @@ apt install fzy
 # Cleanup the cache (TODO: set up a cron to do this)
 apt clean
 
+curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly
 echo "$PROMPT Please Close and restart Terminal to use Zsh"
