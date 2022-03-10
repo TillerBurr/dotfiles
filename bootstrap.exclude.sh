@@ -43,6 +43,7 @@ install_oh_my_zsh_plugins() {
 
 
 bootstrap_vim() {
+	echo "$PROMPT This will install Vim and VimPlug"
   sh /vim.bootstrap.exclude.sh
 }
 
