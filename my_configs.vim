@@ -1,6 +1,6 @@
 let g:python3_host_prog=$HOME.'/.venv/bin/python3'
 
-call plug#begin()
+call plug#begin('~/.config/nvim')
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
