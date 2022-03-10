@@ -46,7 +46,7 @@ apt install apt-transport-https ca-certificates curl software-properties-common 
 #apt install docker-compose -y
 
 # Vim B)
-apt install vim -y
+apt install neovim -y
 
 # Make requests with awesome response formatting
 apt install httpie -y

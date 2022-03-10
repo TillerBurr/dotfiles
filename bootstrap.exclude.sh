@@ -74,6 +74,6 @@ install_pyenv(){
 link
 install_tools
 install_oh_my_zsh_plugins
-bootstrap_vim
 install_pyenv
 install_poetry
+bootstrap_vim
