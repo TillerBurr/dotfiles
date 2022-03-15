@@ -17,3 +17,5 @@ Plug 'mtdl9/vim-log-highlighting'
 Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 " Initialize plugin system
 call plug#end()
+
+colorscheme dracula
