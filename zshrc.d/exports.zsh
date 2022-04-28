@@ -1,6 +1,7 @@
 #! /bin/zsh
 
-
+export UID=$(id -u)
+export GID=$(id -g)
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=$PATH:/usr/bin

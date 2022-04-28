@@ -37,8 +37,8 @@ source ~/.powerlevelrc
 
 #eval "$(pyenv init -)" #&& eval "$(pyenv virtualenv-init -)"
 #eval "$(pyenv virtualenv-init -)"
-#autoload -U bashcompinit
-#bashcompinit
+autoload -U bashcompinit
+bashcompinit
 
-#eval "$(register-python-argcomplete pipx)"
+eval "$(register-python-argcomplete pipx)"
 eval "$(mcfly init zsh)"
