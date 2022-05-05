@@ -11,5 +11,5 @@ alias ll='ls -al'
 alias ls='ls --color=auto -N'
 alias plug_install="ex +PlugInstall +q +q"
 alias vim='nvim'
-
-
+alias nano='babi'
+alias sz="source ~/.zshrc && zsh"
