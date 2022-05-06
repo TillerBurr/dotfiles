@@ -1,0 +1,4 @@
+- shell:
+    - command: ./apt_install.sh
+      stdout: true
+      stderr: true

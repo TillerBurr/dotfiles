@@ -1,0 +1,11 @@
+black
+flake8
+pre-commit
+rich-cli
+babi
+aactivator
+cookicutter
+pls
+virtualenv
+commitizen
+glances
