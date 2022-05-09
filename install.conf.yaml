@@ -14,7 +14,7 @@
     ~/.p10k.zsh: .p10k.zsh
 
 - create:
-    - ~/Code
+    - ~/code
 
 - shell:
     - command: ./general_setup.zsh

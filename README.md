@@ -4,12 +4,10 @@ Dotfiles for Ubuntu, including:
 
 - pyenv
 - pipx
-- zinit
+- zsh with zinit
 - dotbot
 - homebrew
-- yarn
 - vim
-- nodejs
 
 ## Setting up
 
