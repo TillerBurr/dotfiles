@@ -27,4 +27,3 @@ echo "$PROMPT May Need to Run the Following Commands if the distro isn't up to d
 echo "$PROMPT sudo add-apt-repository ppa:neovim-ppa/stable "
 echo "$PROMPT sudo apt-get update"
 echo "$PROMPT sudo apt-get install neovim"
-

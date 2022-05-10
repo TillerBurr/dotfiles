@@ -14,4 +14,3 @@ alias vim='nvim'
 alias nano='babi'
 alias sz="source ~/.zshrc && zsh"
 alias aactivate="ln -s .venv/bin/activate .activate.sh && echo 'deactivate'> .deactivate.sh"
-
