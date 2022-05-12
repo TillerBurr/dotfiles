@@ -73,4 +73,5 @@ apt install -y apt-transport-https \
             libxmlsec1-dev \
             libffi-dev \
             liblzma-dev \
-            file
+            file \
+            pinentry-gtk-2
