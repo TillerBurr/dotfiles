@@ -20,36 +20,16 @@ apt upgrade -y
 # ---------------------------------------------
 
 # NodeJS
-apt install nodejs -y
-apt install yarn -y
-
-# ---------------------------------------------
-# Tools I use often
-# ---------------------------------------------
-
-# Git, obviously
-apt install git -y
+apt install -y nodejs \
+              yarn \
+              git \
+              neovim \
+              httpie \
+              tree \
+              zsh
 
 
-apt install  -y
 
-
-# Vim B)
-apt install neovim -y
-
-# Make requests with awesome response formatting
-apt install httpie -y
-
-# Show directory structure with excellent formatting
-apt install tree -y
-
-
-# ---------------------------------------------
-# Misc
-# ---------------------------------------------
-
-# Zsh
-apt install zsh -y
 chsh -s $(which zsh)
 
 

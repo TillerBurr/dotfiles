@@ -58,8 +58,8 @@ zinit light junegunn/fzf
 
 # FZF-TAB
 zinit  wait="1" lucid light-mode for \
-	Aloxaf/fzf-tab
-	0b10/cheatsheet
+	Aloxaf/fzf-tab \
+	0b10/cheatsheet \
 
 zinit ice wait="0c" lucid atinit="zpcompinit;zpcdreplay"
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -85,9 +85,9 @@ zinit wait"0c" from"gh-r" lucid light-mode for \
 
 zinit wait"0c" lucid light-mode for \
 	zpm-zsh/ls \
-	zpm-zsh/colorize \
 	zpm-zsh/colors \
-	zshzoo/cd-ls
+	zshzoo/cd-ls \
+	zpm-zsh/colorize
 	# dbkaplun/smart-cd
 
 
