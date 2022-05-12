@@ -2,12 +2,13 @@
 
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 zinit snippet OMZP::supervisor
-zinit snippet OMZP::git
-zinit snippet OMZP::colorize
+# zinit snippet OMZP::git
+# zinit snippet OMZP::colorize
 zinit snippet OMZP::fabric
-zinit snippet OMZP::yarn
+# zinit snippet OMZP::yarn
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::pyenv
+# zinit snippet OMZP::pyenv
+zinit light mattberther/zsh-pyenv
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -15,9 +16,15 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+    zdharma-continuum/zinit-annex-rust \
+	zdharma-continuum/zinit-annex-man
+
+
 zinit ice depth"1"
 zinit light romkatv/powerlevel10k
+
+
+
 
 zinit ice wait="0b" lucid atload'bindkey "$terminfo[kcuu1]" history-substring-search-up; bindkey "$terminfo[kcud1]" history-substring-search-down'
 zinit light zsh-users/zsh-history-substring-search
@@ -50,8 +57,9 @@ zinit light junegunn/fzf
 
 
 # FZF-TAB
-zinit ice wait="1" lucid
-zinit light Aloxaf/fzf-tab
+zinit  wait="1" lucid light-mode for \
+	Aloxaf/fzf-tab
+	0b10/cheatsheet
 
 zinit ice wait="0c" lucid atinit="zpcompinit;zpcdreplay"
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -65,14 +73,33 @@ zinit wait lucid atload'_zsh_autosuggest_start' light-mode for \
 zinit ice from="gh-r" as="program" pick="usr/bin/bat" bpick="*amd64.deb" atload="alias cat=bat"
 zinit light sharkdp/bat
 
-zinit ice wait lucid
-zinit light wfxr/forgit
 
-# zinit wait"0c" from"gh-r" lucid pick"poetry.zsh" light-mode for \
-#     darvid/zsh-poetry
-zinit wait"0c" from"gh-r" lucid pick"zsh-pipx.plugin.zsh" light-mode for \
+
+zinit ice wait"2" pick'poetry.zsh' lucid light-mode for \
+	sudosubin/zsh-poetry
+
+zinit wait"0c" from"gh-r" lucid light-mode for \
     thuandt/zsh-pipx
-# zinit light zdharma-continuum/history-search-multi-word
+
+
+
+zinit wait"0c" lucid light-mode for \
+	zpm-zsh/ls \
+	zpm-zsh/colorize \
+	zpm-zsh/colors \
+	zshzoo/cd-ls
+	# dbkaplun/smart-cd
+
+
+
+zinit wait"2" lucid light-mode for \
+	zshzoo/manpage-colorizer \
+	ahmubashshir/zinsults \
+	djui/alias-tips \
+	wfxr/forgit
+
+zinit ice blockf
+zinit light g-plane/zsh-yarn-autocompletions
 ### End of Zinit's installer chunk
 
 #####################

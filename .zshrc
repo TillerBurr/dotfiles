@@ -18,7 +18,10 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+
 source $_custom_zsh_config_base/zshrc.d/plugins.zsh
+
+
  # confirmations, etc.) must go above this block; everything else may go below.
  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 
@@ -35,6 +38,7 @@ fpath+=~/.zfunc
 source $_custom_zsh_config_base/zshrc.d/aliases.zsh
 source $_custom_zsh_config_base/zshrc.d/exports.zsh
 source $_custom_zsh_config_base/zshrc.d/functions.zsh
+
 
 if [ -f ~/.private  ]; then
     source ~/.private

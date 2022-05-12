@@ -8,9 +8,12 @@ alias ...='cd ../..'
 alias http='http --style=solarized'
 alias l='ls -l'
 alias ll='ls -al'
-alias ls='ls --color=auto -N'
+# alias ls='ls --color=auto -N'
 alias plug_install="ex +PlugInstall +q +q"
 alias vim='nvim'
 alias nano='babi'
 alias sz="source ~/.zshrc && zsh"
 alias aactivate="ln -s .venv/bin/activate .activate.sh && echo 'deactivate'> .deactivate.sh"
+alias lsal="pls --all --details"
+alias lsa="pls --all"
+alias lsl="pls --details"
