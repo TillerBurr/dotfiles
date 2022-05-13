@@ -8,7 +8,7 @@ zinit snippet OMZP::fabric
 # zinit snippet OMZP::yarn
 zinit snippet OMZP::command-not-found
 # zinit snippet OMZP::pyenv
-zinit light mattberther/zsh-pyenv
+#zinit light mattberther/zsh-pyenv
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)

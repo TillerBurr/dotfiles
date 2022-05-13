@@ -6,7 +6,6 @@ Dotfiles for Ubuntu, including:
 - pipx
 - zsh with zinit
 - dotbot
-- homebrew
 - vim
 
 ## Setting up
@@ -14,15 +13,10 @@ Dotfiles for Ubuntu, including:
 1. Generate a new public and private SSH key and add them to Github
 2. `git clone git@github.com:baurt/dotfiles.git ~/.dotfiles`
 3. Review `apt_install.sh`
-4. Review `Brewfile`
-5. Review `python/pipx-requirements.txt`
-6. Set `GLOBAL_PY` in `python/install_python_tools.zsh` to the Python version you want to set as a pyenv global
-7. Run `sudo ./install-sudo`
-8. Run `./install`
-
-## Maintenance
-
-- update Brewfile with `brew bundle dump --force --describe`
+4. Review `python/pipx-requirements.txt`
+5. Set `GLOBAL_PY` in `python/install_python_tools.zsh` to the Python version you want to set as a pyenv global
+6. Run `sudo ./install-sudo`
+7. Run `./install`
 
 ### Inspiration (and heavily borrowed from)
 
