@@ -26,7 +26,8 @@ apt install -y nodejs \
               neovim \
               httpie \
               tree \
-              zsh
+              zsh \
+              ccze
 
 
 
@@ -54,4 +55,5 @@ apt install -y apt-transport-https \
             libffi-dev \
             liblzma-dev \
             file \
-            pinentry-gtk-2
+            pinentry-gtk-2 \
+            exa

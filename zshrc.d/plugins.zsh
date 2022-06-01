@@ -78,7 +78,7 @@ zinit light sharkdp/bat
 zinit ice wait"2" pick'poetry.zsh' lucid light-mode for \
 	sudosubin/zsh-poetry
 
-zinit wait"0c" from"gh-r" lucid light-mode for \
+zinit wait"2" from"gh-r" lucid light-mode blockf for \
     thuandt/zsh-pipx
 
 

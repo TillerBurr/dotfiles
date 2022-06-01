@@ -17,3 +17,5 @@ alias aactivate="ln -s .venv/bin/activate .activate.sh && echo 'deactivate'> .de
 alias lsal="pls --all --details"
 alias lsa="pls --all"
 alias lsl="pls --details"
+alias dl="docker logs --follow"
+alias dlt='docker logs --follow --tail 100'

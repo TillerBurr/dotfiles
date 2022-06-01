@@ -18,6 +18,7 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+autoload -U +X bashcompinit && bashcompinit
 
 source $_custom_zsh_config_base/zshrc.d/plugins.zsh
 
@@ -67,7 +68,7 @@ setopt hash_list_all
 
 autoload -U compinit; compinit
 
-autoload -U bashcompinit; bashcompinit
+
 
 autoload -Uz promptinit; promptinit
 eval "$(aactivator init)"
