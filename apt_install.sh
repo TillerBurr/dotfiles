@@ -27,7 +27,8 @@ apt install -y nodejs \
               httpie \
               tree \
               zsh \
-              ccze
+              ccze \
+              libgit2-dev
 
 
 
@@ -55,5 +56,4 @@ apt install -y apt-transport-https \
             libffi-dev \
             liblzma-dev \
             file \
-            pinentry-gtk-2 \
-            exa
+            pinentry-gtk-2

@@ -9,3 +9,4 @@ pls
 virtualenv
 commitizen
 glances
+asciinema

@@ -23,3 +23,6 @@
     - command: ./install_vim.zsh
       stdout: true
       stderr: true
+    - command: ./rust/install_rust.zsh
+      stdout: true
+      stderr: true
