@@ -7,8 +7,7 @@ zinit snippet OMZP::supervisor
 zinit snippet OMZP::fabric
 # zinit snippet OMZP::yarn
 zinit snippet OMZP::command-not-found
-# zinit snippet OMZP::pyenv
-#zinit light mattberther/zsh-pyenv
+zinit snippet OMZP::asdf
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -63,6 +62,7 @@ zinit  wait="1" lucid light-mode for \
 
 zinit ice wait="0c" lucid atinit="zpcompinit;zpcdreplay"
 zinit light zdharma-continuum/fast-syntax-highlighting
+
 #McFly
 zinit ice lucid wait"0b" from"gh-r" as"program" atload'eval "$(mcfly init zsh)"'
 zinit light cantino/mcfly
@@ -92,11 +92,11 @@ zinit wait"0c" lucid light-mode for \
 
 
 
-zinit wait"2" lucid light-mode for \
-	zshzoo/manpage-colorizer \
-	ahmubashshir/zinsults \
-	djui/alias-tips \
-	wfxr/forgit
+# zinit wait"2" lucid light-mode for \
+# 	zshzoo/manpage-colorizer \
+# 	ahmubashshir/zinsults \
+# 	djui/alias-tips \
+# 	wfxr/forgit
 
 zinit ice blockf
 zinit light g-plane/zsh-yarn-autocompletions

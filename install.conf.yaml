@@ -1,28 +1,31 @@
 - defaults:
-    link:
-      relink: true
+      link:
+          relink: true
 
 - clean: ["~"]
 
 - link:
-    ~/.zshrc:
-      path: .zshrc
-      force: true
-    ~/.zshenv: .zshenv
-    ~/.zprofile: .zprofile
-    ~/.gitconfig: .gitconfig
-    ~/.p10k.zsh: .p10k.zsh
+      ~/.zshrc:
+          path: .zshrc
+          force: true
+      ~/.zshenv: .zshenv
+      ~/.zprofile: .zprofile
+      ~/.gitconfig: .gitconfig
+      ~/.p10k.zsh: .p10k.zsh
 
 - create:
-    - ~/code
+      - ~/code
 
 - shell:
-    - command: ./python/install_python_tools.zsh
-      stdout: true
-      stderr: true
-    - command: ./install_vim.zsh
-      stdout: true
-      stderr: true
-    - command: ./rust/install_rust.zsh
-      stdout: true
-      stderr: true
+      - command: ./python/install_python_tools.zsh
+        stdout: true
+        stderr: true
+      - command: ./install_vim.zsh
+        stdout: true
+        stderr: true
+      - command: ./rust/install_rust.zsh
+        stdout: true
+        stderr: true
+      - command: ./nodejs/install_nodejs.zsh
+        stdout: true
+        stderr: true

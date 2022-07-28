@@ -30,10 +30,6 @@ source $_custom_zsh_config_base/zshrc.d/plugins.zsh
  fi
 
 fpath+=~/.zfunc
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
-# eval "$(pyenv virtualenv-init -)"
 
 # load all our config files
 source $_custom_zsh_config_base/zshrc.d/aliases.zsh
@@ -72,8 +68,6 @@ autoload -U compinit; compinit
 
 autoload -Uz promptinit; promptinit
 eval "$(aactivator init)"
-
-# eval "$(register-python-argcomplete pipx)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
