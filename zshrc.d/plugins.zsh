@@ -91,13 +91,6 @@ zinit wait"0c" lucid light-mode for \
 	# dbkaplun/smart-cd
 
 
-
-# zinit wait"2" lucid light-mode for \
-# 	zshzoo/manpage-colorizer \
-# 	ahmubashshir/zinsults \
-# 	djui/alias-tips \
-# 	wfxr/forgit
-
 zinit ice blockf
 zinit light g-plane/zsh-yarn-autocompletions
 ### End of Zinit's installer chunk
