@@ -7,7 +7,6 @@ aactivator
 cookicutter
 pls
 virtualenv
-commitizen
 glances
 asciinema
 pipx
