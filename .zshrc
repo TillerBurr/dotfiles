@@ -19,7 +19,9 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 autoload -U +X bashcompinit && bashcompinit
-
+source $_custom_zsh_config_base/zshrc.d/aliases.zsh
+source $_custom_zsh_config_base/zshrc.d/exports.zsh
+source $_custom_zsh_config_base/zshrc.d/functions.zsh
 source $_custom_zsh_config_base/zshrc.d/plugins.zsh
 
 
@@ -32,9 +34,7 @@ source $_custom_zsh_config_base/zshrc.d/plugins.zsh
 fpath+=~/.zfunc
 
 # load all our config files
-source $_custom_zsh_config_base/zshrc.d/aliases.zsh
-source $_custom_zsh_config_base/zshrc.d/exports.zsh
-source $_custom_zsh_config_base/zshrc.d/functions.zsh
+
 
 
 if [ -f ~/.private  ]; then
