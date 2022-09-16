@@ -2,7 +2,7 @@
 
 Dotfiles for Ubuntu, including:
 
-- pyenv
+- pyenv/asdf
 - pipx
 - zsh with zinit
 - dotbot
@@ -14,7 +14,7 @@ Dotfiles for Ubuntu, including:
 2. `git clone git@github.com:baurt/dotfiles.git ~/.dotfiles`
 3. Review `apt_install.sh`
 4. Review `python/pipx-requirements.txt`
-5. Set `GLOBAL_PY` in `python/install_python_tools.zsh` to the Python version you want to set as a pyenv global
+5. Set `GLOBAL_PY` in `python/install_python_tools.zsh` to the Python version you want to set as a pyenv/adsf global
 6. Run `sudo ./install-sudo`
 7. Run `./install`
 

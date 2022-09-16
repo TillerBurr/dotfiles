@@ -3,7 +3,8 @@
 export UID=$(id -u)
 export GID=$(id -g)
 export UNAME=$(whoami)
-if [ -d ~/.pyenv ]; then
+
+if [ -d "$HOME/.pyenv" ] && [ ! -d "$HOME/.asdf" ]; then
     export PATH="$HOME/.pyenv/bin:$PATH"
 fi
 export PATH=$PATH:/usr/bin

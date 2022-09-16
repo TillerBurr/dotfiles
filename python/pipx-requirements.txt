@@ -10,3 +10,4 @@ virtualenv
 glances
 asciinema
 pipx
+djlint

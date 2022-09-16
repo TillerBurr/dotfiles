@@ -78,10 +78,13 @@ zinit light sharkdp/bat
 zinit ice wait"2" pick'poetry.zsh' lucid light-mode for \
 	sudosubin/zsh-poetry
 
-zinit wait"2" from"gh-r" lucid light-mode blockf for \
-    thuandt/zsh-pipx
+# zinit wait"2" from"gh-r" lucid light-mode blockf for \
+#     thuandt/zsh-pipx
 
-
+zinit wait lucid id-as=pipx \
+  atclone="register-python-argcomplete3 pipx > pipx.gen.zsh" \
+  atpull="%atclone" pick="pipx.gen.zsh" for \
+      zdharma-continuum/null
 
 zinit wait"0c" lucid light-mode for \
 	zpm-zsh/ls \

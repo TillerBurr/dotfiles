@@ -1,5 +1,5 @@
 export GPG_TTY=$(tty)
-if [ -d "$HOME/.pyenv" ]; then
+if [ -d "$HOME/.pyenv" ] && [ ! -d "$HOME/.asdf" ] ; then
     export PYENV_ROOT="$HOME/.pyenv"
     PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
