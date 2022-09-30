@@ -93,6 +93,8 @@ zinit wait"0c" lucid light-mode for \
 	zpm-zsh/colorize
 	# dbkaplun/smart-cd
 
+zinit ice pick'pdm.plugin.zsh'
+zinit light baurt/zsh-pdm
 
 zinit ice blockf
 zinit light g-plane/zsh-yarn-autocompletions

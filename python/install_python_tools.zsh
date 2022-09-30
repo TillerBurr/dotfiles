@@ -4,6 +4,7 @@
 GLOBAL_PY="3.10.4"
 ASDF_BRANCH=v0.10.2
 POETRY_VERSION=1.2.0b3
+PDM_VERSION="latest"
 
 
 ASDF_OR_PYENV="asdf"
@@ -101,7 +102,7 @@ fi
     fi
 export PATH="${HOME}/.local/bin:$PATH"
 
-echo "Installing poetry"
+echo "Installing poetry and pdm"
 if ["$ASDF_OR_PYENV"="pyenv"]; then
 
     curl -sSL https://install.python-poetry.org | python - --preview
@@ -110,6 +111,8 @@ else
 
     asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
     asdf install poetry $POETRY_VERSION
+    asdf plugin add pdm
+    asdf install pdm $PDM_VERSION
 fi
 
 poetry config virtualenvs.create true

@@ -69,5 +69,6 @@ autoload -U compinit; compinit
 autoload -Uz promptinit; promptinit
 eval "$(aactivator init)"
 
+#eval "$(pdm --pep582)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
