@@ -57,3 +57,6 @@ apt install -y apt-transport-https \
             liblzma-dev \
             file \
             pinentry-gtk-2
+
+
+sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f

@@ -1,0 +1,132 @@
+#
+format = """
+$sudo\
+$username\
+$localip\
+[](bg:#16334F fg:#102030)\
+$directory\
+[](fg:#16334F bg:#19546a)\
+$git_branch\
+$git_status\
+[](fg:#19546a bg:#1b6d83)\
+$python\
+[](fg:#1b6d83 bg:#1F7F8F)\
+$nodejs\
+$docker_context\
+$rust\
+[](fg:#1F7F8F)\
+$fill\
+$character\
+[](fg:#1F7F8F)\
+$time\
+[](fg:#1b6d83 bg:#1F7F8F)\
+$cmd_duration\
+[](fg:#19546a bg:#1b6d83)
+"""
+
+#✓
+[fill]
+style = "#ccc"
+symbol = "."
+
+# 
+[character]
+error_symbol = "[ ](fg:#FF3366)"
+success_symbol = "[ ✓](bold green)"
+
+[sudo]
+disabled = false
+format = "[ $symbol ](#FF3366 bg:#000000)[](bg:#102030 fg:#000000)"
+symbol = "sudo"
+
+[username]
+format = '[ $user ]($style)'
+show_always = true
+style_root = "bold #FF3366 bg:#102030"
+style_user = "bold #009999 bg:#102030"
+
+[localip]
+disabled = false
+format = "[@](#999999 bg:#102030)[ $localipv4 ](#009999  bg:#102030)"
+ssh_only = true
+
+[directory]
+format = "[ $path ]($style)"
+style = "#AAAAAA bg:#16334F"
+# truncation_length = 0
+
+# [directory.substitutions]
+# "develop" = ""
+
+[git_branch]
+format = '[[ $symbol $branch ](#CCCCCC bg:#19546a)]($style)'
+symbol = ""
+
+[git_status]
+ahead = "⬆️${count} "
+behind = "⬇️${count} "
+conflicted = "⚔️ "
+deleted = "🗑️${count} "
+diverged = "🔱 ⬆️${ahead_count} ⬇️${behind_count} "
+format = "[$all_status$ahead_behind](#CCCCCC bg:#19546a)"
+modified = "📝${count} "
+renamed = "�${count} "
+staged = "�️${count} "
+stashed = "� ${count}"
+untracked = "❓${count} "
+
+[nodejs]
+detect_files = ["package.json", ".node-version"]
+detect_folders = ["node_modules"]
+format = '[ $symbol ($version) ](#DDDDDD bg:#1F7F8F)'
+symbol = ""
+
+[docker_context]
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+format = "[$symbol$context](#DDDDDD bg:#1F7F8F) "
+only_with_files = true
+style = "blue bold"
+symbol = " "
+
+[python]
+symbol = " "
+#pyenv_version_name = true
+detect_extensions = ["py"]
+format = '[${symbol}python (${version} )(\($virtualenv\) )](#DDDDDD bg:#1b6d83)'
+python_binary = ["./venv/bin/python", "./.venv/bin/python", "./venv/bin/python.exe", "./.venv/bin/python.exe", "python", "python3", "python2"]
+style = "bold yellow"
+version_format = "${raw}"
+
+[rust]
+detect_files = ["cargo.toml"]
+format = '[ $symbol ($version) ](#DDDDDD bg:#1F7F8F)'
+symbol = " "
+
+[time]
+disabled = false
+format = '[[🕛 $time ](#EEEEEE bg:#1F7F8F)]($style)'
+time_format = "%R"
+
+[cmd_duration]
+disabled = false
+format = '[ $duration ](fg:#19546a bg:#1b6d83)'
+min_time = 5_000
+
+[battery]
+charging_symbol = "  "
+discharging_symbol = "  "
+full_symbol = "  "
+
+[[battery.display]]
+style = "bold red"
+threshold = 50
+
+[[battery.display]]
+style = "bold yellow"
+threshold = 75
+
+[[battery.display]]
+style = "bold green"
+threshold = 100

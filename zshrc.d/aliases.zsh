@@ -19,3 +19,6 @@ alias lsa="pls --all"
 alias lsl="pls --details"
 alias dl="docker logs --follow"
 alias dlt='docker logs --follow --tail 100'
+
+# Alias for explorer.exe
+alias explorer="explorer.exe"

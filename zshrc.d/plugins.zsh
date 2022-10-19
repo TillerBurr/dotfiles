@@ -19,9 +19,13 @@ zinit light-mode for \
 	zdharma-continuum/zinit-annex-man
 
 
-zinit ice depth"1"
-zinit light romkatv/powerlevel10k
-
+# zinit ice depth"1"
+# zinit light romkatv/powerlevel10k
+zinit for atclone"
+      ./starship init zsh > init.zsh
+      ./starship completions zsh > _starship" \
+    from"gh-r" nocompile sbin src"init.zsh" \
+  starship/starship
 
 
 
