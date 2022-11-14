@@ -1,4 +1,5 @@
 #
+add_newline = true
 format = """
 $sudo\
 $username\
@@ -21,9 +22,10 @@ $character\
 $time\
 [](fg:#1b6d83 bg:#1F7F8F)\
 $cmd_duration\
-[](fg:#19546a bg:#1b6d83)
+[](fg:#19546a bg:#1b6d83)\
+$battery
+[ ](bold green)
 """
-
 #✓
 [fill]
 style = "#ccc"
@@ -66,14 +68,14 @@ symbol = ""
 ahead = "⬆️${count} "
 behind = "⬇️${count} "
 conflicted = "⚔️ "
-deleted = "🗑️${count} "
+deleted = "✂️${count} "
 diverged = "🔱 ⬆️${ahead_count} ⬇️${behind_count} "
 format = "[$all_status$ahead_behind](#CCCCCC bg:#19546a)"
-modified = "📝${count} "
-renamed = "�${count} "
-staged = "�️${count} "
-stashed = "� ${count}"
-untracked = "❓${count} "
+modified = "✏️${count} "
+renamed = "🎭${count} "
+staged = "➕${count} "
+stashed = "📁 ${count}"
+untracked = "🐾${count} "
 
 [nodejs]
 detect_files = ["package.json", ".node-version"]
@@ -111,8 +113,8 @@ time_format = "%R"
 
 [cmd_duration]
 disabled = false
-format = '[ $duration ](fg:#19546a bg:#1b6d83)'
-min_time = 5_000
+format = '[ $duration ](fg:#DDDDDD bg:#1b6d83)'
+# min_time = 5_000
 
 [battery]
 charging_symbol = "  "

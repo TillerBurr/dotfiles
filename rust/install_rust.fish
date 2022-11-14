@@ -1,4 +1,4 @@
-#! /usr/bin/zsh
+#! /usr/bin/fish
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 

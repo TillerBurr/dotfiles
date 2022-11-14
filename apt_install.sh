@@ -9,12 +9,13 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 # Update apt
+apt-add-repository ppa:fish-shell/release-3
 apt update -y
 
 # Upgrade any preinstalled packages
 apt upgrade -y
 
-
+apt install fish
 # ---------------------------------------------
 # Programming Languages and Frameworks
 # ---------------------------------------------
@@ -28,11 +29,10 @@ apt install -y nodejs \
               tree \
               zsh \
               ccze \
-              libgit2-dev
+              libgit2-dev \
+              fzf
 
 
-
-chsh -s $(which zsh)
 
 
 apt install -y apt-transport-https \
@@ -58,5 +58,9 @@ apt install -y apt-transport-https \
             file \
             pinentry-gtk-2
 
+echo $(which fish) | tee -a /etc/shells
 
+# chsh -s $(which zsh)
+
+chsh -s $(which fish)
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f

@@ -5,28 +5,38 @@
 - clean: ["~"]
 
 - link:
-      ~/.zshrc:
-          path: .zshrc
-          force: true
-      ~/.zshenv: .zshenv
-      ~/.zprofile: .zprofile
+#       ~/.zshrc:
+#           path: .zshrc
+#           force: true
+#       ~/.zshenv: .zshenv
+#       ~/.zprofile: .zprofile
       ~/.gitconfig: .gitconfig
-      ~/.p10k.zsh: .p10k.zsh
+      # ~/.p10k.zsh: .p10k.zsh
+      ~/.config/fish/config.fish:
+        path: fish/config.fish
+        force: true
+      ~/.config/fish/functions/up.fish: fish/functions/up.fish
+      ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
+      ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
+      ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
 
 
 - create:
       - ~/code
 
 - shell:
-      - command: ./python/install_python_tools.zsh
+      - command: ./python/install_python_tools.fish
         stdout: true
         stderr: true
-      - command: ./install_vim.zsh
+      # - command: ./install_vim.fish
+      #   stdout: true
+      #   stderr: true
+      - command: ./rust/install_rust.fish
         stdout: true
         stderr: true
-      - command: ./rust/install_rust.zsh
+      - command: ./nodejs/install_nodejs.fish
         stdout: true
         stderr: true
-      - command: ./nodejs/install_nodejs.zsh
-        stdout: true
+      - command: ./fish/install.fish
         stderr: true
+        stdout: true

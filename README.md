@@ -5,6 +5,7 @@ Dotfiles for Ubuntu, including:
 - pyenv/asdf
 - pipx
 - zsh with zinit
+- fish
 - dotbot
 - vim
 
