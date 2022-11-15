@@ -19,6 +19,7 @@
       ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
       ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
       ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
+      ~/.config/fish/conf.d/activate.fish: fish/conf.d/activate.fish
 
 
 - create:
