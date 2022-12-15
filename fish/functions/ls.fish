@@ -1,1 +1,3 @@
-alias ls=exa
+function ls
+    exa --icons $argv
+end

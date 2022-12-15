@@ -1,6 +1,7 @@
 #
 add_newline = true
 format = """
+[  ](fg:#009999 bg:#102030)\
 $sudo\
 $username\
 $localip\
@@ -26,14 +27,20 @@ $cmd_duration\
 $battery
 [ ](bold green)
 """
+
+right_format = """
+"""
 #✓
+
+continuation_prompt = "▶▶"
+
 [fill]
 style = "#ccc"
 symbol = "."
 
 # 
 [character]
-error_symbol = "[ ](fg:#FF3366)"
+error_symbol = "[](fg:#FF3366)"
 success_symbol = "[ ✓](bold green)"
 
 [sudo]
@@ -96,7 +103,7 @@ symbol = " "
 symbol = " "
 #pyenv_version_name = true
 detect_extensions = ["py"]
-format = '[${symbol}python (${version} )(\($virtualenv\) )](#DDDDDD bg:#1b6d83)'
+format = '[${symbol} (${version} )(\($virtualenv\) )](#DDDDDD bg:#1b6d83)'
 python_binary = ["./venv/bin/python", "./.venv/bin/python", "./venv/bin/python.exe", "./.venv/bin/python.exe", "python", "python3", "python2"]
 style = "bold yellow"
 version_format = "${raw}"
