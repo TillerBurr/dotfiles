@@ -19,25 +19,25 @@
       ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
       ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
       ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
-      ~/.config/fish/conf.d/activate.fish: fish/conf.d/activate.fish
+      ~/.config/starship.toml: starship.toml
 
 
 - create:
       - ~/code
 
 - shell:
-      - command: ./python/install_python_tools.fish
+      - command: fish ./python/install_python_tools.fish
         stdout: true
         stderr: true
       # - command: ./install_vim.fish
       #   stdout: true
       #   stderr: true
-      - command: ./rust/install_rust.fish
+      - command: fish ./rust/install_rust.fish
         stdout: true
         stderr: true
-      - command: ./nodejs/install_nodejs.fish
+      - command: fish ./nodejs/install_nodejs.fish
         stdout: true
         stderr: true
-      - command: ./fish/install.fish
+      - command: fish ./fish/install.fish
         stderr: true
         stdout: true

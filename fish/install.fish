@@ -1,5 +1,5 @@
 #! /usr/bin/fish
-curl -L https://get.oh-my.fish
+# curl -L https://get.oh-my.fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install PatrickF1/fzf.fish
 fisher install h-matsuo/fish-color-scheme-switcher

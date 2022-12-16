@@ -1,15 +1,15 @@
 #! /usr/bin/fish
 
 # set GLOBAL_PY to the Python version you want to use globally
-set GLOBAL_PY="3.11.0"
-set ASDF_BRANCH=v0.10.2
-set POETRY_VERSION=1.2.2
-set PDM_VERSION="latest"
+set GLOBAL_PY "3.11.0"
+set ASDF_BRANCH v0.10.2
+set POETRY_VERSION 1.2.2
+set PDM_VERSION "latest"
 
 
-set ASDF_OR_PYENV="asdf"
+set ASDF_OR_PYENV "asdf"
 
-if test "$ASDF_OR_PYENV"="pyenv"
+if test "$ASDF_OR_PYENV" = "pyenv"
     if not test -d ~/.pyenv
         echo "\nInstalling pyenv...\n"
         git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -18,12 +18,12 @@ if test "$ASDF_OR_PYENV"="pyenv"
     end
 
     # check if pyenv executable is added to the PATH and shims are enabled
-    if not type -q pyenv >/dev/null 2>&1
+    if not test type -q pyenv >/dev/null 2>&1
         echo "\nadding pyenv executable to the PATH\n"
-        export PYENV_ROOT="$HOME/.pyenv"
-        export PATH="$PYENV_ROOT/bin:$PATH"
+        set -gx PYENV_ROOT "$HOME/.pyenv"
+        set -gx PATH "$PYENV_ROOT/bin:$PATH"
     end
-    if not echo $PATH | grep --color=auto "$(pyenv root)/shims" >/dev/null 2>&1
+    if not test echo $PATH | grep --color=auto "$(pyenv root)/shims" >/dev/null 2>&1
         echo "\nadding pyenv shims directory to the PATH\n"
         eval "$(pyenv init --path)"
     end
@@ -57,6 +57,7 @@ else
         echo "\nasdf already installed\n"
     end
 
+    mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 
     # check if pyenv executable is added to the PATH and shims are enabled
     if not type -q asdf >/dev/null 2>&1
@@ -73,17 +74,11 @@ else
     if not asdf list python | grep $GLOBAL_PY >/dev/null 2>&1
         echo "\nInstalling Python $GLOBAL_PY via asdf\n"
         asdf install python $GLOBAL_PY
+        asdf reshim python
     else
         echo "\nPython $GLOBAL_PY already installed via asdf\n"
     end
 
-
-    if not asdf list python | grep $GLOBAL_PY >/dev/null 2>&1
-        echo "\nInstalling Python $GLOBAL_PY via asdf\n"
-        asdf install python $GLOBAL_PY
-    else
-        echo "\nPython $GLOBAL_PY already installed via asdf\n"
-    end
 
 
     # set up global Python version via asdf
@@ -97,16 +92,16 @@ else
 
 
 end
-set PY="$(python --version)"
+set PY "$(python --version)"
 if [ "$PY" = "Python $GLOBAL_PY" ]
     echo "\nPython $GLOBAL_PY set up correctly\n"
 else
     echo "\nWarning: Python $GLOBAL_PY is NOT set up correctly, still using system version: $PY\n"
 end
-set -x PATH="$HOME/.local/bin:$PATH"
+set -x PATH "$HOME/.local/bin:$PATH"
 
 echo "Installing poetry and pdm"
-if test "$ASDF_OR_PYENV"="pyenv"
+if test "$ASDF_OR_PYENV" = "pyenv"
 
     curl -sSL https://install.python-poetry.org | python - --preview
 
@@ -123,7 +118,7 @@ poetry config virtualenvs.in-project true
 
 
 # install pipx and pipx packages
-if not type -q pipx >/dev/null 2>&1
+if not test type -q pipx >/dev/null 2>&1
     echo "\nInstalling pipx...\n"
     python -m pip install --user pipx
     python -m pipx ensurepath
@@ -133,17 +128,17 @@ end
 
 
 echo "\nInstalling pipx packages for Python $GLOBAL_PY...\n"
-set PIPX_LIST="$(pipx list)"
-if [ "$ASDF_OR_PYENV"=="pyenv" ]
-    set GLOBAL_PY_PATH="$(pyenv which python)"
+set PIPX_LIST "$(pipx list)"
+if [ "$ASDF_OR_PYENV" = "pyenv" ]
+    set GLOBAL_PY_PATH "$(pyenv which python)"
 else
-    set GLOBAL_PY_PATH="$(asdf which python)"
+    set GLOBAL_PY_PATH "$(asdf which python)"
 end
 
 while read -r P
     do
     set inst echo "$PIPX_LIST" | grep -ce "package $P .*, Python $GLOBAL_PY"
-    if test inst -gt 0
+    if inst -gt 0
         echo "$P already installed."
         elif [[ $(echo "$PIPX_LIST" | grep -ce "package $P") -gt 0 ]]
         echo "Reinstalling $P for $GLOBAL_PY."

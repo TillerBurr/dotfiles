@@ -1,5 +1,3 @@
-Executable File  14 lines (9 sloc)  315 Bytes
-
 #!/usr/bin/env bash
 
 set -e

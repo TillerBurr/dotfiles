@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 fish_add_path -p ~/.local/bin
-fish_add_path -Pp $(yarn global bin)
+fish_add_path -Pp $(yarn bin)
 fish_add_path -p ~/.cargo/bin
 
 if test -d $HOME/.pyenv && not test -d $HOME/.asdf

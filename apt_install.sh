@@ -30,33 +30,32 @@ apt install -y nodejs \
               zsh \
               ccze \
               libgit2-dev \
-              fzf
-
-
-
-
-apt install -y apt-transport-https \
-            ca-certificates \
-            software-properties-common\
-            make \
-            build-essential \
-            libssl-dev \
-            zlib1g-dev \
-            libbz2-dev \
-            libreadline-dev \
-            libsqlite3-dev \
-            wget \
-            curl \
-            llvm \
-            libncursesw5-dev \
-            xz-utils \
-            tk-dev \
-            libxml2-dev \
-            libxmlsec1-dev \
-            libffi-dev \
-            liblzma-dev \
-            file \
-            pinentry-gtk-2
+              fzf \
+              make \
+              apt-transport-https \
+              ca-certificates \
+              software-properties-common\
+              make \
+              gcc \
+              build-essential \
+              libssl-dev \
+              zlib1g-dev \
+              libbz2-dev \
+              libreadline-dev \
+              libsqlite3-dev \
+              wget \
+              curl \
+              llvm \
+              libncursesw5-dev \
+              xz-utils \
+              tk-dev \
+              libxml2-dev \
+              libxmlsec1-dev \
+              libffi-dev \
+              liblzma-dev \
+              file \
+              unzip \
+              pinentry-gtk2
 
 echo $(which fish) | tee -a /etc/shells
 
@@ -64,3 +63,7 @@ echo $(which fish) | tee -a /etc/shells
 
 chsh -s $(which fish)
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install

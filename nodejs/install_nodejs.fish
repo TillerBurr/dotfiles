@@ -1,8 +1,8 @@
 #! /usr/bin/fish
 
-set ASDF_BRANCH=v0.10.2
+set ASDF_BRANCH v0.10.2
 
-if test -d ~/.asdf
+if not test -d ~/.asdf
     echo "\nInstalling asdf...\n"
     git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch $ASDF_BRANCH
 else
