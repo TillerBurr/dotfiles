@@ -29,6 +29,7 @@ apt install -y nodejs \
               software-properties-common\
               make \
               gcc \
+              libpq-dev \
               build-essential \
               libssl-dev \
               zlib1g-dev \
