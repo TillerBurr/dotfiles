@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# Install my favourite tools using the apt package manager (currently tested only on Debian buster)
-
-PROMPT='[apt-install]'
-
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root"
-  exit
-fi
 # Update apt
 apt-add-repository ppa:fish-shell/release-3
 apt update -y
@@ -61,13 +53,13 @@ apt install -y nodejs \
 echo $(which fish) | tee -a /etc/shells
 
 # chsh -s $(which zsh)
-
+echo $(which fish)
 chsh -s $(which fish)
 
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-./aws/install
+./aws/install -y
 
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
 dpkg -i session-manager-plugin.deb
