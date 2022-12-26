@@ -2,12 +2,12 @@
 
 Dotfiles for Ubuntu, including:
 
-- pyenv/asdf
-- pipx
+- asdf
+- pipx - Need to update. requirements exist, pipx is currently not installed
 - zsh with zinit
 - fish
 - dotbot
-- vim
+- vim - Need to redo
 
 ## Setting up
 
@@ -15,10 +15,5 @@ Dotfiles for Ubuntu, including:
 2. `git clone git@github.com:baurt/dotfiles.git ~/.dotfiles`
 3. Review `apt_install.sh`
 4. Review `python/pipx-requirements.txt`
-5. Set `GLOBAL_PY` in `python/install_python_tools.zsh` to the Python version you want to set as a pyenv/adsf global
-6. Run `sudo ./install-sudo`
-7. Run `./install`
+5. Run `./install`
 
-### Inspiration (and heavily borrowed from)
-
-- [izabelakowal/dotfiles)](https://github.com/izabelakowal/dotfiles)
