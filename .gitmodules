@@ -8,3 +8,6 @@
 [submodule "dotbot-sudo"]
 	path = dotbot-sudo
 	url = https://github.com/DrDynamic/dotbot-sudo.git
+[submodule "dotbot-pip"]
+	path = dotbot-pip
+	url = https://github.com/sobolevn/dotbot-pip.git

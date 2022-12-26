@@ -24,6 +24,11 @@
       global: 3.11.1
       versions:
         - 3.11.1
+    - plugin: pipx
+      url: https://github.com/amrox/asdf-pyapp.git
+      global: 1.1.0
+      versions:
+        - 1.1.0
     - plugin: nodejs
       url: https://github.com/asdf-vm/asdf-nodejs.git
     - plugin: pnpm
@@ -44,6 +49,9 @@
 
 - create:
       - ~/code
+
+- pipx:
+    - file: python/pipx-requirements.txt
 
 - shell:
       - command: ./rust/install_rust.sh

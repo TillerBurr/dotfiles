@@ -3,7 +3,7 @@
 Dotfiles for Ubuntu, including:
 
 - asdf
-- pipx - Need to update. requirements exist, pipx is currently not installed
+- pipx
 - zsh with zinit
 - fish
 - dotbot
