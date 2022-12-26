@@ -6,7 +6,7 @@
 
 - sudo:
     -shell:
-        - command: ./asdf/apt_install.sh
+        - command: ./apt_install.sh
           stdout: true
           stderr: true
 
@@ -63,8 +63,8 @@
       path: ~/.config/fish/completions
       create: true
     ~/.config/fish/functions/cat.fish:
-    path: fish/functions/cat.fish
-    create: true
+      path: fish/functions/cat.fish
+      create: true
     ~/.config/fish/functions/ls.fish:
       path: fish/functions/ls.fish
       create: true
