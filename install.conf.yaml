@@ -17,26 +17,27 @@
       stderr: true
     - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
 - asdf:
-    - asdf_path: ~/.asdf/asdf.sh
+    # - asdf_path: ~/.asdf/asdf.sh
     - plugin: python
+      url: https://github.com/asdf-community/asdf-python
       global: 3.11.1
       versions:
         - 3.11.1
-    - plugin: pipx
-      url: https://github.com/amrox/asdf-pyapp.git
-      global: latest
     - plugin: nodejs
+      url: https://github.com/asdf-vm/asdf-nodejs
     - plugin: pnpm
       url: https://github.com/jonathanmorley/asdf-pnpm
 - create:
     - ~/code
+- shell:
+    - command: fish ./python/install.fish
 - pipx:
     - file: python/pipx-requirements.txt
 - shell:
     - command: ./rust/install_rust.sh
       stdout: true
       stderr: true
-    - command: ./fish/install.sh
+    - command: fish ./fish/install.fish
       stderr: true
       stdout: true
 - link:
@@ -48,8 +49,8 @@
     ~/.config/fish/functions/up.fish:
       path: fish/functions/up.fish
       create: true
-    ~/.asdf/completions/asdf.fish:
-      path: ~/.config/fish/completions
+    ~/.config/fish/completions/asdf.fish:
+      path: ~/.asdf/completions/asdf.fish
       create: true
     ~/.config/fish/functions/cat.fish:
       path: fish/functions/cat.fish
