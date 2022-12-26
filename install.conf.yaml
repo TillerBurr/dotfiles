@@ -35,17 +35,6 @@
       url: https://github.com/jonathanmorley/asdf-pnpm
 
 
-- link:
-    ~/.gitconfig: .gitconfig
-    ~/.config/fish/config.fish:
-      path: fish/config.fish
-      force: true
-    ~/.config/fish/functions/up.fish: fish/functions/up.fish
-    ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
-    ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
-    ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
-    ~/.config/starship.toml: starship.toml
-
 
 - create:
       - ~/code
@@ -60,3 +49,26 @@
       - command: ./fish/install.sh
         stderr: true
         stdout: true
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.config/fish/config.fish:
+      path: fish/config.fish
+      force: true
+      create: true
+    ~/.config/fish/functions/up.fish:
+      path: fish/functions/up.fish
+      create: true
+    ~/.asdf/completions/asdf.fish:
+      path: ~/.config/fish/completions
+      create: true
+    ~/.config/fish/functions/cat.fish:
+    path: fish/functions/cat.fish
+    create: true
+    ~/.config/fish/functions/ls.fish:
+      path: fish/functions/ls.fish
+      create: true
+    ~/.config/fish/functions/mkcd.fish:
+      path: fish/functions/mkcd.fish
+      create: true
+    ~/.config/starship.toml: starship.toml
