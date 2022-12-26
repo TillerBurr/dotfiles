@@ -11,7 +11,7 @@
           stderr: true
 
 - shell:
-    - command: ./asdf/install_asdf.sh
+    - command: sh ./asdf/install_asdf.sh
       stdout: true
       stderr: true
     - command: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
@@ -43,10 +43,10 @@
     - file: python/pipx-requirements.txt
 
 - shell:
-      - command: ./rust/install_rust.sh
+      - command: sh ./rust/install_rust.sh
         stdout: true
         stderr: true
-      - command: ./fish/install.sh
+      - command: sh ./fish/install.sh
         stderr: true
         stdout: true
 
