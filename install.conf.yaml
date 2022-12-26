@@ -3,6 +3,9 @@
       relink: true
 - clean:
     - '~'
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
 - sudo:
     - shell:
         - command: ./apt_install.sh
