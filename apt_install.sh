@@ -44,6 +44,7 @@ apt install -y nodejs \
               libreadline-dev \
               libsqlite3-dev \
               wget \
+              bat \
               curl \
               llvm \
               libncursesw5-dev \
