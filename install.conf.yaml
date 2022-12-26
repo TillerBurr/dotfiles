@@ -4,40 +4,51 @@
 
 - clean: ["~"]
 
+- sudo:
+    -shell:
+        - command: ./asdf/apt_install.sh
+          stdout: true
+          stderr: true
+
+- shell:
+    - command: ./asdf/install_asdf.sh
+      stdout: true
+      stderr: true
+    - command: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
+
+
+- asdf:
+    - asdf_path: ~/.asdf/asdf.sh
+    - plugin: python
+      url: https://github.com/tuvistavie/asdf-python.git
+      global: 3.11.1
+      versions:
+        - 3.11.1
+    - plugin: nodejs
+      url: https://github.com/asdf-vm/asdf-nodejs.git
+    - plugin: pnpm
+      url: https://github.com/jonathanmorley/asdf-pnpm
+
+
 - link:
-#       ~/.zshrc:
-#           path: .zshrc
-#           force: true
-#       ~/.zshenv: .zshenv
-#       ~/.zprofile: .zprofile
-      ~/.gitconfig: .gitconfig
-      # ~/.p10k.zsh: .p10k.zsh
-      ~/.config/fish/config.fish:
-        path: fish/config.fish
-        force: true
-      ~/.config/fish/functions/up.fish: fish/functions/up.fish
-      ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
-      ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
-      ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
-      ~/.config/starship.toml: starship.toml
+    ~/.gitconfig: .gitconfig
+    ~/.config/fish/config.fish:
+      path: fish/config.fish
+      force: true
+    ~/.config/fish/functions/up.fish: fish/functions/up.fish
+    ~/.config/fish/functions/cat.fish: fish/functions/cat.fish
+    ~/.config/fish/functions/ls.fish: fish/functions/ls.fish
+    ~/.config/fish/functions/mkcd.fish: fish/functions/mkcd.fish
+    ~/.config/starship.toml: starship.toml
 
 
 - create:
       - ~/code
 
 - shell:
-      - command: fish ./python/install_python_tools.fish
+      - command: ./rust/install_rust.sh
         stdout: true
         stderr: true
-      # - command: ./install_vim.fish
-      #   stdout: true
-      #   stderr: true
-      - command: fish ./rust/install_rust.fish
-        stdout: true
-        stderr: true
-      - command: fish ./nodejs/install_nodejs.fish
-        stdout: true
-        stderr: true
-      - command: fish ./fish/install.fish
+      - command: ./fish/install.sh
         stderr: true
         stdout: true

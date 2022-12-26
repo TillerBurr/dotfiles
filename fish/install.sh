@@ -1,4 +1,4 @@
-#! /usr/bin/fish
+#! /bin/bash
 # curl -L https://get.oh-my.fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install PatrickF1/fzf.fish

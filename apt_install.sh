@@ -62,7 +62,7 @@ echo $(which fish) | tee -a /etc/shells
 # chsh -s $(which zsh)
 
 chsh -s $(which fish)
-sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f
+
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
