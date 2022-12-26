@@ -8,7 +8,7 @@
     - [git submodule update --init --recursive, Installing submodules]
 - sudo:
     - shell:
-        - command: ./apt_install.sh
+        - command: ./apt_install.sh -y
           stdout: true
           stderr: true
 - shell:

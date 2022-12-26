@@ -7,7 +7,7 @@ apt update -y
 # Upgrade any preinstalled packages
 apt upgrade -y
 
-apt install fish
+apt install fish -y
 # ---------------------------------------------
 # Programming Languages and Frameworks
 # ---------------------------------------------
