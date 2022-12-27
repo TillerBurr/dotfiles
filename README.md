@@ -4,7 +4,7 @@ Dotfiles for Ubuntu, including:
 
 - asdf
 - pipx
-- zsh with zinit
+- zsh with zinit -> If I want to switch back to ZSH
 - fish
 - dotbot
 - vim - Need to redo
