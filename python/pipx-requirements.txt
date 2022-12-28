@@ -9,5 +9,4 @@ pls
 virtualenv
 glances
 asciinema
-pipx
 djlint

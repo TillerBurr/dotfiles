@@ -3,11 +3,9 @@
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 [submodule "dotbot-asdf"]
-	path = dotbot-asdf
+	path = plugins/dotbot-asdf
 	url = https://github.com/sobolevn/dotbot-asdf.git
 [submodule "dotbot-sudo"]
-	path = dotbot-sudo
+	path = plugins/dotbot-sudo
 	url = https://github.com/DrDynamic/dotbot-sudo.git
-[submodule "dotbot-pip"]
-	path = dotbot-pip
-	url = https://github.com/sobolevn/dotbot-pip.git
+

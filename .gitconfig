@@ -25,11 +25,11 @@
 [url "https://github.com/"]
 	insteadOf = gh:
 
-
 [core]
 	autocrlf = input
 	filemode = false
 	editor = nano
+
 [commit]
 	gpgsign = true
 [gpg]
