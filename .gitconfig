@@ -30,8 +30,6 @@
 	autocrlf = input
 	filemode = false
 	editor = nano
-[credential]
-	helper = /c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe
 [commit]
 	gpgsign = true
 [gpg]
