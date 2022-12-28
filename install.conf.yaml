@@ -6,6 +6,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - command: 'cp .gitconfig-local ~/.gitconfig.local'
 - sudo:
     - shell:
         - command: ./apt_install.sh -y
