@@ -32,8 +32,6 @@
     - ~/code
 - shell:
     - command: fish ./python/install.fish
-- pipx:
-    - file: python/pipx-requirements.txt
 - shell:
     - command: ./rust/install_rust.sh
       stdout: true
@@ -41,6 +39,7 @@
     - command: fish ./fish/install.fish
       stderr: true
       stdout: true
+    - command: cp .gitconfig-local ${HOME}/.gitconfig-local
 - link:
     ~/.gitconfig: .gitconfig
     ~/.config/fish/config.fish:
