@@ -57,6 +57,8 @@ echo $(which fish) | tee -a /etc/shells
 echo $(which fish)
 chsh -s $(which fish)
 
+curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "google-chrome_stable_current_amd64.deb"
+apt -y install ./google-chrome-stable_current_amd64.deb
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
