@@ -2,7 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Tyler Baur
-	email = baur.tyler@gmail.com
+	email = tbaur@teuteberg.com
+	signingkey = 96C0BEF8D982B2C2
 
 [include]
 	path = ~/.gitconfig-local

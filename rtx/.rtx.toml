@@ -1,0 +1,20 @@
+[tools]
+nodejs=["18", "19"]
+python=["3.10.10","3.11.2","latest"]
+pnpm='latest'
+poetry="latest"
+pdm="latest"
+
+[plugins]
+# specify a custom repo url
+# note this will only be used if the plugin does not already exist
+python = 'https://github.com/jdxcode/rtx-python'
+pnpm ='https://github.com/jonathanmorley/asdf-pnpm'
+poetry='https://github.com/asdf-community/asdf-poetry'
+pdm='https://github.com/1oglop1/asdf-pdm'
+
+[settings]
+experimental = true
+
+[alias.python3]
+default="3.10.10"

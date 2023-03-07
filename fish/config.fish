@@ -4,6 +4,7 @@ end
 
 fish_add_path -p ~/.local/bin
 fish_add_path -p ~/.cargo/bin
+fish_add_path -p ~/chromedrivers
 
 if test -d $HOME/.pyenv && not test -d $HOME/.asdf
     eval (pyenv init --path)
@@ -22,3 +23,5 @@ source ~/.asdf/asdf.fish
 
 starship init fish | source
 scheme set default
+set -x RTX_CONFIG_FILE $HOME/.config/.rtx.toml
+/usr/bin/rtx activate fish | source
