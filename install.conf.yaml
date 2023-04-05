@@ -17,17 +17,17 @@
         stdout: true
         stderr: true
       - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
-- asdf:
-      # - asdf_path: ~/.asdf/asdf.sh
-      - plugin: python
-        url: https://github.com/asdf-community/asdf-python
-        global: 3.11.1
-        versions:
-            - 3.11.1
-      - plugin: nodejs
-        url: https://github.com/asdf-vm/asdf-nodejs
-      - plugin: pnpm
-        url: https://github.com/jonathanmorley/asdf-pnpm
+# - asdf:
+#       # - asdf_path: ~/.asdf/asdf.sh
+#       - plugin: python
+#         url: https://github.com/asdf-community/asdf-python
+#         global: 3.11.1
+#         versions:
+#             - 3.11.1
+#       - plugin: nodejs
+#         url: https://github.com/asdf-vm/asdf-nodejs
+#       - plugin: pnpm
+#         url: https://github.com/jonathanmorley/asdf-pnpm
 - create:
       - ~/code
 - shell:
@@ -40,6 +40,9 @@
         stderr: true
         stdout: true
       - command: cp .gitconfig-local ${HOME}/.gitconfig-local
+      - command: curl https://rtx.pub/install.sh | sh
+        stderr: true
+        stdout: true
 - link:
       ~/.gitconfig: .gitconfig
       ~/.config/fish/config.fish:
@@ -49,9 +52,9 @@
       ~/.config/fish/functions/up.fish:
           path: fish/functions/up.fish
           create: true
-      ~/.config/fish/completions/asdf.fish:
-          path: ~/.asdf/completions/asdf.fish
-          create: true
+      # ~/.config/fish/completions/asdf.fish:
+      #     path: ~/.asdf/completions/asdf.fish
+      #     create: true
       ~/.config/fish/functions/cat.fish:
           path: fish/functions/cat.fish
           create: true

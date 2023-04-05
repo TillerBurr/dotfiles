@@ -1,9 +1,9 @@
 [tools]
 nodejs=["18", "19"]
-python=["3.10.10","3.11.2","latest"]
-pnpm='latest'
-poetry="latest"
-pdm="latest"
+python = ["3.11.2","3.10.10"]
+pnpm='7.30.0'
+poetry = "1.4.0"
+pdm = "2.5.0b0"
 
 [plugins]
 # specify a custom repo url
