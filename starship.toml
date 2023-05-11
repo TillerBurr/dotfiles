@@ -1,127 +1,177 @@
-#
-add_newline = true
 format = """
-[  ](fg:#009999 bg:#102030)\
-$sudo\
+[](#2C3E50)\
+$os\
 $username\
-$localip\
-[](bg:#16334F fg:#102030)\
+$hostname\
+[](bg:#00d26a fg:#2C3E50)\
 $directory\
-[](fg:#16334F bg:#19546a)\
+[](fg:#00d26a bg:#3498DB)\
 $git_branch\
 $git_status\
-[](fg:#19546a bg:#1b6d83)\
-$python\
-[](fg:#1b6d83 bg:#1F7F8F)\
+[](fg:#3498DB bg:#62D7FD)\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
 $nodejs\
-$docker_context\
+$nim\
 $rust\
-[](fg:#1F7F8F)\
-$fill\
-$character\
-[](fg:#1F7F8F)\
-$time\
-[](fg:#1b6d83 bg:#1F7F8F)\
-$cmd_duration\
-[](fg:#19546a bg:#1b6d83)\
-$battery
-[ ](bold green)
+$scala\
+$rlang\
+[](fg:#62D7FD bg:#F8EFE0)\
+$docker_context\
+[](fg:#F8EFE0 bg:#3eb1a3)\
+$python\
+[ ](fg:#3eb1a3)\
+$line_break\
+$character
 """
-
 right_format = """
+$battery\
+$time\
+$command_duration
 """
 #✓
+# Set to true to avoid a two-line prompt
+[line_break]
+disabled = false
 
-continuation_prompt = "▶▶"
-
-[fill]
-style = "#ccc"
-symbol = "."
-
-# 
+# Set disabled to true when using a one-line prompt for more aesthetically pleasing results
 [character]
-error_symbol = "[](fg:#FF3366)"
-success_symbol = "[ ✓](bold green)"
-
-[sudo]
+success_symbol = '[⚡](bold yellow)'
+error_symbol = '[⚡💥](bold red)'
+format = '$symbol '
 disabled = false
-format = "[ $symbol ](#FF3366 bg:#000000)[](bg:#102030 fg:#000000)"
-symbol = "sudo"
 
+# Disable the blank line at the start of the prompt
+#add_newline = false
+
+# You can also replace your username with a neat symbol like  or disable this
+# and use the os module below
 [username]
-format = '[ $user ]($style)'
 show_always = true
-style_root = "bold #FF3366 bg:#102030"
-style_user = "bold #009999 bg:#102030"
-
-[localip]
+style_user = 'bg:#2C3E50'
+style_root = 'bg:#2C3E50'
+format = '[$user ]($style)'
 disabled = false
-format = "[@](#999999 bg:#102030)[ $localipv4 ](#009999  bg:#102030)"
+
+[hostname]
 ssh_only = true
+ssh_symbol = '🌐'
+trim_at = '.'
+style = 'bg:#2C3E50'
+format = '[$ssh_symbol $hostname]($style)'
+disabled = false
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+# symbol = ''
+style = 'bg:#2C3E50'
+format = '[ $symbol ]($style)'
+disabled = false  # disabled by default
 
 [directory]
-format = "[ $path ]($style)"
-style = "#AAAAAA bg:#16334F"
-# truncation_length = 0
+style = 'bg:#00d26a fg:#2C3E50'
+format = '[ $path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
 
-# [directory.substitutions]
-# "develop" = ""
+[c]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[conda]
+symbol = '🅒'
+style = 'bg:#EC8FD0 fg:#2C3E50'
+format = '[ $symbol $environment ]($style)'
+ignore_base = false
+
+[docker_context]
+symbol = ''
+style = 'bg:#FCA17D fg:#2C3E50'
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
-format = '[[ $symbol $branch ](#CCCCCC bg:#19546a)]($style)'
-symbol = ""
+symbol = ''
+style = 'bg:#3498DB fg:#2C3E50'
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-ahead = "⬆️${count} "
-behind = "⬇️${count} "
-conflicted = "⚔️ "
-deleted = "✂️${count} "
-diverged = "🔱 ⬆️${ahead_count} ⬇️${behind_count} "
-format = "[$all_status$ahead_behind](#CCCCCC bg:#19546a)"
+style = 'bg:#3498DB fg:#2C3E50'
+format = '[$all_status$ahead_behind]($style)'
 modified = "✏️${count} "
 renamed = "🎭${count} "
 staged = "➕${count} "
 stashed = "📁 ${count}"
-untracked = "🐾${count} "
+untracked = "${count} "
+deleted = "✂️${count} "
+ahead = "⬆️${count} "
+behind = "⬇️${count} "
+
+[golang]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
-detect_files = ["package.json", ".node-version"]
-detect_folders = ["node_modules"]
-format = '[ $symbol ($version) ](#DDDDDD bg:#1F7F8F)'
-symbol = ""
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
-[docker_context]
-detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
-detect_folders = []
-disabled = false
-format = "[$symbol$context](#DDDDDD bg:#1F7F8F) "
-only_with_files = true
-style = "blue bold"
-symbol = " "
+[nim]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
 [python]
-symbol = " "
-#pyenv_version_name = true
-detect_extensions = ["py"]
-format = '[${symbol} (${version} )(\($virtualenv\) )](#DDDDDD bg:#1b6d83)'
-python_binary = ["./venv/bin/python", "./.venv/bin/python", "./venv/bin/python.exe", "./.venv/bin/python.exe", "python", "python3", "python2"]
-style = "bold yellow"
-version_format = "${raw}"
+symbol = ''
+format = '[${symbol} ${pyenv_prefix} (${version} )(\($virtualenv\) )]($style)'
+style = 'bg:#3eb1a3 fg:#2C3E50'
+
+[rlang]
+symbol = '📐'
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[$symbol ($version )]($style)'
 
 [rust]
-detect_files = ["cargo.toml"]
-format = '[ $symbol ($version) ](#DDDDDD bg:#1F7F8F)'
-symbol = " "
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
-[time]
-disabled = false
-format = '[[🕛 $time ](#EEEEEE bg:#1F7F8F)]($style)'
-time_format = "%R"
-
-[cmd_duration]
-disabled = false
-format = '[ $duration ](fg:#DDDDDD bg:#1b6d83)'
-# min_time = 5_000
+[scala]
+symbol = ''
+style = 'bg:#62D7FD fg:#2C3E50'
+format = '[ $symbol ($version) ]($style)'
 
 [battery]
 charging_symbol = "  "
@@ -139,3 +189,14 @@ threshold = 75
 [[battery.display]]
 style = "bold green"
 threshold = 100
+
+[os.symbols]
+Ubuntu = " "
+Unknown = "❓ "
+Windows = " "
+
+[time]
+disabled=false
+format='🕝[$time]($style)'
+time_format = '%T'
+utc_time_offset = '-5'
