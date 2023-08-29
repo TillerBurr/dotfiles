@@ -2,8 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Tyler Baur
-	email = tbaur@teuteberg.com
-	signingkey = 96C0BEF8D982B2C2
+	email = baur.tyler@gmail.com
+	signingkey = 9B1689B310E2D6E5
 
 [include]
 	path = ~/.gitconfig-local
@@ -37,3 +37,5 @@
 	program = /usr/bin/gpg2
 [init]
 	defaultBranch = main
+[safe]
+	directory = /home/tbaur/.dotfiles/dotbot
