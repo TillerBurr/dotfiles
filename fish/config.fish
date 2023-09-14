@@ -5,6 +5,9 @@ end
 fish_add_path -p ~/.local/bin
 fish_add_path -p ~/.cargo/bin
 fish_add_path -p ~/chromedrivers
+fish_add_path -p ~/tools/lua-language-server/bin
+fish_add_path -p ~/tools/ripgrep
+fish_add_path -p ~/tools/nvim/bin
 
 set -gx PIPX_DEFAULT_PYTHON /home/tbaur/.local/share/rtx/installs/python/3.11.4/bin/python
 

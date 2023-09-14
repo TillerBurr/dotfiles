@@ -12,28 +12,39 @@
             - command: ./apt_install.sh -y
               stdout: true
               stderr: true
-- shell:
-      - command: ./asdf/install_asdf.sh
-        stdout: true
-        stderr: true
-      - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
-# - asdf:
-#       # - asdf_path: ~/.asdf/asdf.sh
-#       - plugin: python
-#         url: https://github.com/asdf-community/asdf-python
-#         global: 3.11.1
-#         versions:
-#             - 3.11.1
-#       - plugin: nodejs
-#         url: https://github.com/asdf-vm/asdf-nodejs
-#       - plugin: pnpm
-#         url: https://github.com/jonathanmorley/asdf-pnpm
+
 - create:
       - ~/code
+- link:
+      ~/.gitconfig: .gitconfig
+      ~/.config/fish/config.fish:
+          path: fish/config.fish
+          force: true
+          create: true
+      ~/.config/fish/functions/up.fish:
+          path: fish/functions/up.fish
+          create: true
+      ~/.config/fish/functions/cat.fish:
+          path: fish/functions/cat.fish
+          create: true
+      ~/.config/fish/functions/ls.fish:
+          path: fish/functions/ls.fish
+          create: true
+      ~/.config/fish/functions/mkcd.fish:
+          path: fish/functions/mkcd.fish
+          create: true
+      ~/.config/starship.toml: starship.toml
+      ~/.config/.rtx.toml: rtx/.rtx.toml
+      ~/.config/nano/nanorc:
+          path: nanorc
+          create: true
+      ~/.config/nvim:
+          path: neovim
+          create: true
+
 - shell:
+      - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
       - command: fish ./python/install.fish
-      - command: git clone https://github.com/ingydotnet/git-subrepo
-- shell:
       - command: ./rust/install_rust.sh
         stdout: true
         stderr: true
@@ -50,32 +61,6 @@
       - command: curl -sSf https://rye-up.com/get | bash
         stderr: true
         stdout: true
-- link:
-      ~/.gitconfig: .gitconfig
-      ~/.config/fish/config.fish:
-          path: fish/config.fish
-          force: true
-          create: true
-      ~/.config/fish/functions/up.fish:
-          path: fish/functions/up.fish
-          create: true
-      # ~/.config/fish/completions/asdf.fish:
-      #     path: ~/.asdf/completions/asdf.fish
-      #     create: true
-      ~/.config/fish/functions/cat.fish:
-          path: fish/functions/cat.fish
-          create: true
-      ~/.config/fish/functions/ls.fish:
-          path: fish/functions/ls.fish
-          create: true
-      ~/.config/fish/functions/mkcd.fish:
-          path: fish/functions/mkcd.fish
-          create: true
-      ~/.config/starship.toml: starship.toml
-      ~/.config/.rtx.toml: rtx/.rtx.toml
-      ~/.config/nano/nanorc: 
-          path: nanorc
-          create: true
-
-- shell:
-      - command: git clone https://github.com/ingydotnet/git-subrepo ~/.local/git-subrepo
+      - command: fish ./rtx/install.fish
+        stderr: true
+        stdout: true

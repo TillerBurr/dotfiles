@@ -16,7 +16,6 @@ apt install fish -y
 apt install -y nodejs \
               yarn \
               git \
-              neovim \
               httpie \
               tree \
               zsh \
@@ -49,7 +48,8 @@ apt install -y nodejs \
               liblzma-dev \
               file \
               unzip \
-              pinentry-gtk2
+              pinentry-gtk2 \
+              fuse
 
 echo $(which fish) | tee -a /etc/shells
 
@@ -73,7 +73,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of
 && apt update \
 && apt install gh -y
 
-# wget -qO - https://rtx.pub/gpg-key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/rtx-archive-keyring.gpg 1> /dev/null
-# echo "deb [signed-by=/usr/share/keyrings/rtx-archive-keyring.gpg arch=amd64] https://rtx.pub/deb stable main" | sudo tee /etc/apt/sources.list.d/rtx.list
-# sudo apt update
-# sudo apt install -y rtx
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
