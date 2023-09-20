@@ -1,1 +1,0 @@
-[{"defaults": {"link": {"relink": true}}}, {"shell": [{"command": "./apt_install.sh -y", "stdout": true, "stderr": true}]}]

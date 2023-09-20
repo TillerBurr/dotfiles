@@ -53,16 +53,16 @@ apt install -y nodejs \
 
 echo $(which fish) | tee -a /etc/shells
 
-# chsh -s $(which zsh)
 echo $(which fish)
 chsh -s $(which fish)
-
+# TODO Check if files exist and skip downloading/installing if they do
 curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "google-chrome_stable_current_amd64.deb"
-apt -y install ./google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome_stable_current_amd64.deb
+apt install -f -y
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-./aws/install -y
+./aws/install
 
 curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
 dpkg -i session-manager-plugin.deb

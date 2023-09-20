@@ -38,20 +38,13 @@
       ~/.config/nano/nanorc:
           path: nanorc
           create: true
-      ~/.config/nvim:
-          path: neovim
-          create: true
 
 - shell:
       - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
-      - command: fish ./python/install.fish
+      # - command: fish ./python/install.fish
       - command: ./rust/install_rust.sh
         stdout: true
         stderr: true
-      - command: fish ./fish/install.fish
-        stderr: true
-        stdout: true
-      - command: cp .gitconfig-local ${HOME}/.gitconfig-local
       - command: curl https://rtx.pub/install.sh | sh
         stderr: true
         stdout: true
@@ -61,6 +54,17 @@
       - command: curl -sSf https://rye-up.com/get | bash
         stderr: true
         stdout: true
-      - command: fish ./rtx/install.fish
+      - command: ./rtx/install.sh
         stderr: true
         stdout: true
+      - command: fish ./fish/install.fish
+        stderr: true
+        stdout: true
+      - command: cp .gitconfig-local ${HOME}/.gitconfig-local
+- link:
+      ~/.config/nvim/init.lua:
+          path: neovim/init.lua
+          create: true
+      ~/.config/nvim/lua:
+          path: neovim/lua
+          create: true

@@ -9,9 +9,9 @@ fish_add_path -p ~/tools/lua-language-server/bin
 fish_add_path -p ~/tools/ripgrep
 fish_add_path -p ~/tools/nvim/bin
 
-set -gx PIPX_DEFAULT_PYTHON /home/tbaur/.local/share/rtx/installs/python/3.11.4/bin/python
+set -gx PIPX_DEFAULT_PYTHON $HOME/.local/share/rtx/installs/python/3.11.4/bin/python
 
-set -gx DPRINT_INSTALL /home/tbaur/.dprint
+set -gx DPRINT_INSTALL $HOME/.dprint
 
 
 if test -d $HOME/.pyenv && not test -d $HOME/.asdf
@@ -32,7 +32,7 @@ set -x UNAME $(whoami)
 starship init fish | source
 scheme set default
 set -x RTX_CONFIG_FILE $HOME/.config/.rtx.toml
-/home/$USER/.local/share/rtx/bin/rtx activate -s fish | source
+$HOME/.local/share/rtx/bin/rtx activate -s fish | source
 
 # source $HOME/.local/git-subrepo/.fish.rc
 fish_add_path -p ~/.rye/shims
