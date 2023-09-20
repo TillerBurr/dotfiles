@@ -32,8 +32,8 @@ set -x UNAME $(whoami)
 starship init fish | source
 scheme set default
 set -x RTX_CONFIG_FILE $HOME/.config/.rtx.toml
-/home/tbaur/.local/share/rtx/bin/rtx activate -s fish | source
+/home/$USER/.local/share/rtx/bin/rtx activate -s fish | source
 
-source $HOME/.local/git-subrepo/.fish.rc
+# source $HOME/.local/git-subrepo/.fish.rc
 fish_add_path -p ~/.rye/shims
 fish_add_path -p $DPRINT_INSTALL/bin
