@@ -61,6 +61,9 @@
         stderr: true
         stdout: true
       - command: cp .gitconfig-local ${HOME}/.gitconfig-local
+      - command: fish ./neovim/install.fish
+        stdout: true
+        stderr: true
 - link:
       ~/.config/nvim/init.lua:
           path: neovim/init.lua

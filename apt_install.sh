@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+#Fix NameServer In WSL
+rm /etc/resolv.conf
+bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
+bash -c 'echo "[network]" > /etc/wsl.conf'
+bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+chattr +i /etc/resolv.conf
 # Update apt
 apt-add-repository ppa:fish-shell/release-3
 apt update -y
@@ -12,13 +18,9 @@ apt install fish -y
 # Programming Languages and Frameworks
 # ---------------------------------------------
 
-# NodeJS
-apt install -y nodejs \
-              yarn \
-              git \
+apt install -y git \
               httpie \
               tree \
-              zsh \
               ccze \
               libgit2-dev \
               fzf \
@@ -53,19 +55,29 @@ apt install -y nodejs \
 
 echo $(which fish) | tee -a /etc/shells
 
-echo $(which fish)
+
 chsh -s $(which fish)
-# TODO Check if files exist and skip downloading/installing if they do
-curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "google-chrome_stable_current_amd64.deb"
-dpkg -i google-chrome_stable_current_amd64.deb
-apt install -f -y
 
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install
 
-curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
-dpkg -i session-manager-plugin.deb
+if command -v google-chrome-stable >/dev/null 2>&1; then
+    echo "Chrome already installed."
+else
+    curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o "google-chrome_stable_current_amd64.deb"
+    dpkg -i google-chrome_stable_current_amd64.deb
+    apt install -f -y #install dependencies
+fi
+
+if command -v aws >/dev/null 2>&1; then
+    echo "The aws command exists, assuming ssm is also installed"
+else
+
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    ./aws/install
+    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+    dpkg -i session-manager-plugin.deb
+fi
+
 
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -73,7 +85,12 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of
 && apt update \
 && apt install gh -y
 
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit /usr/local/bin
+
+if command -v lazygit>/dev/null2>&1; then
+    echo "Lazygit already installed"
+else
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf lazygit.tar.gz lazygit
+    sudo install lazygit /usr/local/bin
+fi

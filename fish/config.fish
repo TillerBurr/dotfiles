@@ -10,11 +10,11 @@ fish_add_path -p ~/tools/ripgrep
 fish_add_path -p ~/tools/nvim/bin
 
 set -gx PIPX_DEFAULT_PYTHON $HOME/.local/share/rtx/installs/python/3.11.4/bin/python
-
 set -gx DPRINT_INSTALL $HOME/.dprint
 
+alias vim nvim
 
-if test -d $HOME/.pyenv && not test -d $HOME/.asdf
+if test -d $HOME/.pyenv
     eval (pyenv init --path)
 end
 
@@ -26,8 +26,6 @@ end
 set -x UID $(id -u)
 set -x GID $(id -g)
 set -x UNAME $(whoami)
-# set -x aactivator (which aactivator)/bin/activator
-# source ~/.asdf/asdf.fish
 
 starship init fish | source
 scheme set default
