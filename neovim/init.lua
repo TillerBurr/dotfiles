@@ -22,7 +22,7 @@ end
 vim.g.python3_host_prog = '/home/tbaur/tools/nvim_python/bin/python'
 local core_conf_files = {
   "globals.lua", -- some global settings
---   "options.vim", -- setting options in nvim
+  "options.lua", -- setting options in nvim
 --   "autocommandsx.vim", -- various autocommands
   "keybindings.lua", -- all the user-defined mappings
   "plugins.lua", -- all the plugins installed and their configurations
