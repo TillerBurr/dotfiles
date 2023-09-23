@@ -9,19 +9,21 @@ if not test -d "$HOME/tools/"
     mkdir -p "$HOME/tools/"
 end
 
-set NVIM_PYTHON_DIR $HOME/tools/nvim_python
+set NVIM_PYTHON_DIR $HOME/tools
 if not test -d "$NVIM_PYTHON_DIR"
     mkdir -p "$NVIM_PYTHON_DIR"
 end
 echo "Setting up virtual environment in $NVIM_PYTHON_DIR"
 
 python -m venv $NVIM_PYTHON_DIR/.venv
-set -a PY_PACKAGES "pynvim" 'python-lsp-server[all]' "vim-vint" "python-lsp-isort" "pylsp-mypy" "python-lsp-black" "python-lsp-ruff"
+set -a PY_PACKAGES "pynvim"
 
 echo "Installing Python packages"
 for p in $PY_PACKAGES
     $NVIM_PYTHON_DIR/.venv/bin/python -m pip install "$p"
 end
+
+
 set NODE_DIR (rtx where node@19)
 $NODE_DIR/bin/npm install -g vim-language-server
 $NODE_DIR/bin/npm install -g bash-language-server
@@ -119,3 +121,4 @@ end
 mkdir -p $NVIM_CONFIG_DIR
 echo "Installing nvim plugins, please wait"
 nvim -c "autocmd User LazyInstall quitall"  -c "lua require('lazy').install()"
+nvim -c "PylspInstall pylsp-mypy pyls-isort python-lsp-black python-lsp-ruff"

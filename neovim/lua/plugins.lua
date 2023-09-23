@@ -45,15 +45,23 @@ local plugin_specs = {
   { 'saadparwaiz1/cmp_luasnip' },
   { 'hrsh7th/cmp-nvim-lua' },
   { "onsails/lspkind-nvim" },
-
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({
+      })
+    end
+  },
   -- Snippets
-  { 'L3MON4D3/LuaSnip' },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  },
   { 'rafamadriz/friendly-snippets' },
-  -- -- Python indent (follows the PEP8 style)
-  -- { "Vimjas/vim-python-pep8-indent", ft = { "python" } },
-
-  -- -- Python-related text object
-  -- { "jeetsukumaran/vim-pythonsense", ft = { "python" } },
   {
     "Yggdroot/LeaderF",
     cmd = "Leaderf",
@@ -63,7 +71,7 @@ local plugin_specs = {
       end
     end,
   },
-  "nvim-lua/plenary.nvim",
+  { "nvim-lua/plenary.nvim" },
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -74,14 +82,11 @@ local plugin_specs = {
   { "rose-pine/neovim",          name = "rose-pine",  lazy = true },
   { "olimorris/onedarkpro.nvim", name = "onedarkpro", lazy = true },
 
-
-
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
 
   },
-
   {
     "akinsho/bufferline.nvim",
     event = { "BufEnter" },

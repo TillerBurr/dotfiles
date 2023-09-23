@@ -3,27 +3,12 @@ local cmp = require("cmp")
 local lspkind = require("lspkind")
 
 cmp.setup {
-  -- snippet = {
-  --   expand = function(args)
-  --     -- For `ultisnips` user.
-  --     vim.fn["UltiSnips#Anon"](args.body)
-  --   end,
-  -- },
   mapping = cmp.mapping.preset.insert {
-    ["<Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end,
+    -- snippet = {
+    --   expand = function(args)
+    --     require("luasnip").lsp_expand(args.body)
+    --   end,
+    -- },
     ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<C-e>"] = cmp.mapping.abort(),
     ["<Esc>"] = cmp.mapping.close(),
@@ -31,27 +16,30 @@ cmp.setup {
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
   },
   sources = {
-    { name = "nvim_lsp" },                     -- For nvim-lsp
-    { name = "ultisnips" },                    -- For ultisnips user.
-    { name = "path" },                         -- for path completion
-    { name = "buffer",   keyword_length = 2 }, -- for buffer word completion
-    { name = "emoji",    insert = true },      -- emoji completion
+    { name = "codeium" },
+    { name = "nvim_lsp" },
+    { name = "luasnip" },
+    { name = "path" },                        -- for path completion
+    { name = "buffer",  keyword_length = 2 }, -- for buffer word completion
   },
   completion = {
     keyword_length = 1,
     completeopt = "menu,noselect",
   },
+  experimental = {
+    ghost_text = { hlgroup = "Comment" }
+  },
   formatting = {
     format = lspkind.cmp_format {
       mode = "symbol_text",
+      ellipsis_char = '...',
+      symbol_map = { Codeium = "", },
       menu = {
         nvim_lsp = "[LSP]",
-        ultisnips = "[US]",
         nvim_lua = "[Lua]",
         path = "[Path]",
         buffer = "[Buffer]",
-        emoji = "[Emoji]",
-        omni = "[Omni]",
+        luasnip = "[Snip]"
       },
     },
   },

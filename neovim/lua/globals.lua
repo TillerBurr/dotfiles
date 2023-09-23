@@ -12,7 +12,7 @@ vim.g.loaded_ruby_provider = 0      -- Disable ruby provider
 vim.g.loaded_node_provider = 0      -- Disable node provider
 vim.g.did_install_default_menus = 1 -- do not load menu
 
-vim.g.python3_host_prog = "/home/tbaur/tools/nvim_python/.venv/bin/python"
+vim.g.python3_host_prog = "/home/tbaur/tools/.venv/bin/python"
 -- Specify server commands for LanguageClient
 
 
