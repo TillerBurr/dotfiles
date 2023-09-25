@@ -56,6 +56,7 @@ local plugin_specs = {
       })
     end
   },
+  { 'lukas-reineke/cmp-under-comparator' },
   -- Snippets
   {
     "L3MON4D3/LuaSnip",
@@ -82,11 +83,7 @@ local plugin_specs = {
   { "rose-pine/neovim",          name = "rose-pine",  lazy = true },
   { "olimorris/onedarkpro.nvim", name = "onedarkpro", lazy = true },
 
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-
-  },
+  { 'yamatsum/nvim-cursorline' },
   {
     "akinsho/bufferline.nvim",
     event = { "BufEnter" },
@@ -96,10 +93,23 @@ local plugin_specs = {
 
   -- fancy start screen
   {
-    "nvimdev/dashboard-nvim",
-  },
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  }, {
+  'mrjones2014/legendary.nvim',
+  -- since legendary.nvim handles all your keymaps/commands,
+  -- its recommended to load legendary.nvim before other plugins
+  priority = 10000,
+  lazy = false,
+  -- sqlite is only needed if you want to use frecency sorting
+  -- dependencies = { 'kkharji/sqlite.lua' }
+},
+  { 'ThePrimeagen/vim-be-good' },
   -- Highlight URLs inside vim
-  { "itchyny/vim-highlighturl",  event = "VeryLazy" },
+  { "itchyny/vim-highlighturl", event = "VeryLazy" },
 
   -- notification plugin
   {
@@ -113,9 +123,6 @@ local plugin_specs = {
 
   -- Comment plugin
   { "tpope/vim-commentary",      event = "VeryLazy" },
-
-  -- Autosave files on certain events
-  { "907th/vim-auto-save",       event = "InsertEnter" },
 
 
   -- better UI for some nvim actions
@@ -156,16 +163,10 @@ local plugin_specs = {
   -- Faster footnote generation
   { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" } },
 
-  -- Vim tabular plugin for manipulate tabular, required by markdown plugins
-  -- { "godlygeek/tabular",                cmd = { "Tabularize" } },
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+
   },
 
   { "chrisbra/unicode.vim",            event = "VeryLazy" },
@@ -188,7 +189,10 @@ local plugin_specs = {
     "gelguy/wilder.nvim",
     build = ":UpdateRemotePlugins",
   },
-
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  },
   -- showing keybindings
   {
     "folke/which-key.nvim",
