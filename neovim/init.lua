@@ -21,23 +21,17 @@ if version.cmp(ev, actual_ver) ~= 0 then
 end
 vim.g.python3_host_prog = '/home/tbaur/tools/nvim_python/bin/python'
 local core_conf_files = {
-  "globals.lua", -- some global settings
-  "options.lua", -- setting options in nvim
---   "autocommandsx.vim", -- various autocommands
+  "globals.lua",     -- some global settings
+  "options.lua",     -- setting options in nvim
+  --   "autocommandsx.vim", -- various autocommands
   "keybindings.lua", -- all the user-defined mappings
-  "plugins.lua", -- all the plugins installed and their configurations
-  "colorschemes.lua", -- colorscheme settings
+  "plugins.lua",     -- all the plugins installed and their configurations
 }
-
 -- source all the core config files
 for _, file_name in ipairs(core_conf_files) do
-  if vim.endswith(file_name, 'vim') then
-    local path = string.format("%s/core/%s", vim.fn.stdpath("config"), file_name)
-    local source_cmd = "source " .. path
-    vim.cmd(source_cmd)
-  else
-    local module_name, _ = string.gsub(file_name, "%.lua", "")
-    package.loaded[module_name] = nil
-    require(module_name)
-  end
+  local module_name, _ = string.gsub(file_name, "%.lua", "")
+  package.loaded[module_name] = nil
+  require(module_name)
 end
+
+vim.cmd("colorscheme rose-pine")
