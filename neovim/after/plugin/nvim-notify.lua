@@ -1,3 +1,5 @@
+
+require("telescope").load_extension("notify")
 local nvim_notify = require("notify")
 nvim_notify.setup {
   -- Animation style

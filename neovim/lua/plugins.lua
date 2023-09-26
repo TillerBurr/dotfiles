@@ -25,7 +25,7 @@ local plugin_specs = {
 
     }
   },
-
+  {'romgrk/fzy-lua-native'},
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = true,
@@ -188,6 +188,7 @@ local plugin_specs = {
   {
     "gelguy/wilder.nvim",
     build = ":UpdateRemotePlugins",
+    dependencies = { "romgrk/fzy-lua-native",'roxma/nvim-yarp','roxma/vim-hug-neovim-rpc' },
   },
   {
     'nvim-lualine/lualine.nvim',
