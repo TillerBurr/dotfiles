@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 local keymap = vim.keymap
 local nvim_tree = require("nvim-tree")
 
@@ -12,7 +13,7 @@ nvim_tree.setup {
   update_cwd = false,
   view = {
     width = 30,
-    hide_root_folder = false,
+--    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -107,3 +108,4 @@ keymap.set("n", "<leader>s", require("nvim-tree.api").tree.toggle, {
   silent = true,
   desc = "toggle nvim-tree",
 })
+end

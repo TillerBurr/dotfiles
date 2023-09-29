@@ -33,5 +33,7 @@ for _, file_name in ipairs(core_conf_files) do
   package.loaded[module_name] = nil
   require(module_name)
 end
+if not vim.g.vscode then
 
-vim.cmd("colorscheme rose-pine")
+    vim.cmd("colorscheme rose-pine")
+end

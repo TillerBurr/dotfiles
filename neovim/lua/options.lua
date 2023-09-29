@@ -22,4 +22,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 
--- vim.opt.colorcolumn = "80"
+ vim.opt.colorcolumn = "89"
+ vim.opt.clipboard:append("unnamedplus")

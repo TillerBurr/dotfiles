@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 local gs = require("gitsigns")
 
 gs.setup {
@@ -55,3 +56,4 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     ]]
   end
 })
+end

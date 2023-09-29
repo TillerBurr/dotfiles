@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lsp_zero = require('lsp-zero')
 lsp_zero.extend_cmp()
@@ -155,3 +156,5 @@ require('mason-lspconfig').setup({
     end
   },
 })
+
+end

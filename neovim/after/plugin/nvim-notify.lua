@@ -1,4 +1,4 @@
-
+if not vim.g.vscode then
 require("telescope").load_extension("notify")
 local nvim_notify = require("notify")
 nvim_notify.setup {
@@ -10,3 +10,4 @@ nvim_notify.setup {
 }
 
 vim.notify = nvim_notify
+end

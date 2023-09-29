@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 require('nvim-cursorline').setup {
     cursorline = {
         enable = true,
@@ -10,3 +11,4 @@ require('nvim-cursorline').setup {
         hl = { underline = true },
     }
 }
+end

@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 require("bufferline").setup {
     options = {
       numbers = "buffer_id",
@@ -44,3 +45,5 @@ require("bufferline").setup {
       sort_by = "id",
     },
   }
+
+  end

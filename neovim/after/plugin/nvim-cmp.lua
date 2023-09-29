@@ -1,3 +1,4 @@
+if not vim.g.vscode then
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 local lspkind = require("lspkind")
@@ -74,3 +75,5 @@ vim.cmd([[
   highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
   highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
 ]])
+
+end
