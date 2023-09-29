@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 #Fix NameServer In WSL
+chattr -i /etc/resolv.conf
 rm /etc/resolv.conf
-bash -c 'echo "nameserver 8.8.8.8" > /etc/resolv.conf'
-bash -c 'echo "[network]" > /etc/wsl.conf'
-bash -c 'echo "generateResolvConf = false" >> /etc/wsl.conf'
+#truncate -s 0 /etc/resolv.conf
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "[network]" > /etc/wsl.conf
+echo "generateResolvConf = false" >> /etc/wsl.conf
 chattr +i /etc/resolv.conf
 # Update apt
 apt-add-repository ppa:fish-shell/release-3
@@ -55,9 +57,9 @@ apt install -y git \
 
 echo $(which fish) | tee -a /etc/shells
 
-
-chsh -s $(which fish)
-
+echo $(which fish)
+chsh -s /usr/bin/fish
+#usermod -s /usr/bin/fish $USER
 
 if command -v google-chrome-stable >/dev/null 2>&1; then
     echo "Chrome already installed."

@@ -15,7 +15,11 @@ if not test -d "$NVIM_PYTHON_DIR"
 end
 echo "Setting up virtual environment in $NVIM_PYTHON_DIR"
 
-python -m venv $NVIM_PYTHON_DIR/.venv
+set RYE_TOOLCHAIN (rye toolchain list)
+set PY_EXE (string split ")" (string split "(" $RYE_TOOLCHAIN)[2])[1]
+
+
+$PY_EXE -m venv $NVIM_PYTHON_DIR/.venv
 set -a PY_PACKAGES "pynvim"
 
 echo "Installing Python packages"
@@ -24,7 +28,7 @@ for p in $PY_PACKAGES
 end
 
 
-set NODE_DIR (rtx where node@19)
+set NODE_DIR (/home/tbaur/.local/share/rtx/bin/rtx where node@19)
 $NODE_DIR/bin/npm install -g vim-language-server
 $NODE_DIR/bin/npm install -g bash-language-server
 
@@ -120,5 +124,5 @@ end
 
 mkdir -p $NVIM_CONFIG_DIR
 echo "Installing nvim plugins, please wait"
-nvim -c "autocmd User LazyInstall quitall"  -c "lua require('lazy').install()"
-nvim -c "PylspInstall pylsp-mypy pyls-isort python-lsp-black python-lsp-ruff"
+$NVIM_DIR/bin/nvim -c "autocmd User LazyInstall quitall"  -c "lua require('lazy').install()"
+$NVIM_DIR/bin/nvim -c "PylspInstall pylsp-mypy pyls-isort python-lsp-black python-lsp-ruff"
