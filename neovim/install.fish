@@ -28,7 +28,7 @@ for p in $PY_PACKAGES
 end
 
 
-set NODE_DIR (/home/tbaur/.local/share/rtx/bin/rtx where node@19)
+set NODE_DIR ($HOME/.local/share/rtx/bin/rtx where node@19)
 $NODE_DIR/bin/npm install -g vim-language-server
 $NODE_DIR/bin/npm install -g bash-language-server
 
