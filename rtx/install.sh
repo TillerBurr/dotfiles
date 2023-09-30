@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-rtx trust $HOME/.config/.rtx.toml
-rtx install
+$HOME/.local/share/rtx/bin/rtx trust $HOME/.config/.rtx.toml
+$HOME/.local/share/rtx/bin/rtx install

@@ -51,7 +51,7 @@
       - command: curl -fsSL https://dprint.dev/install.sh | sh
         stderr: true
         stdout: true
-      - command: curl -sSf https://rye-up.com/get | bash
+      - command: curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
         stderr: true
         stdout: true
       - command: ./rtx/install.sh
