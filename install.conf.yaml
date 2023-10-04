@@ -38,6 +38,20 @@
       ~/.config/nano/nanorc:
           path: nanorc
           create: true
+      ~/.config/nvim/init.lua:
+          path: neovim/init.lua
+          create: true
+          force: true
+      ~/.config/nvim/lua:
+          path: neovim/lua
+          create: true
+          force: true
+      ~/.config/nvim/after:
+          path: neovim/after
+          create: true
+          force: true
+
+
 
 - shell:
       - command: 'sh -c "$(curl -fsSL https://starship.rs/install.sh)" -y -f'
@@ -64,10 +78,3 @@
       - command: fish ./neovim/install.fish
         stdout: true
         stderr: true
-- link:
-      ~/.config/nvim/init.lua:
-          path: neovim/init.lua
-          create: true
-      ~/.config/nvim/lua:
-          path: neovim/lua
-          create: true

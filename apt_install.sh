@@ -57,9 +57,8 @@ apt install -y git \
 
 echo $(which fish) | tee -a /etc/shells
 
-echo $(which fish)
-chsh -s /usr/bin/fish
-#usermod -s /usr/bin/fish $USER
+
+usermod --shell /usr/bin/fish $USER
 
 if command -v google-chrome-stable >/dev/null 2>&1; then
     echo "Chrome already installed."

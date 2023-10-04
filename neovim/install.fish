@@ -77,12 +77,7 @@ if not command -v rg; and not test -f "$RIPGREP_DIR/rg"
     mkdir -p "$HOME/tools/ripgrep/doc/man/man1"
     mv "$HOME/tools/ripgrep/doc/rg.1" "$HOME/tools/ripgrep/doc/man/man1"
 
-    if test "$USE_BASH_SHELL" = true
         echo 'set -gx MANPATH $HOME/tools/ripgrep/doc/man $MANPATH' >> "$HOME/.bash_profile"
-    else
-        echo 'set -gx MANPATH $HOME/tools/ripgrep/doc/man $MANPATH' >> "$HOME/.zshrc"
-        echo 'set -gx FPATH $HOME/tools/ripgrep/complete $FPATH' >> "$HOME/.zshrc"
-    end
 else
     echo "ripgrep is already installed. Skip installing it."
 end
@@ -100,9 +95,6 @@ if not test -f "$NVIM_DIR/bin/nvim"
     echo "Installing Nvim"
     echo "Creating nvim directory under tools directory"
 
-    if not test -d "$NVIM_DIR"
-        mkdir -p "$NVIM_DIR"
-    end
 
     if not test -f $NVIM_SRC_NAME
         echo "Downloading Nvim"
@@ -117,12 +109,8 @@ else
 end
 
 echo "Setting up config and installing plugins"
-if test -d "$NVIM_CONFIG_DIR"
-    rm -rf "$NVIM_CONFIG_DIR.backup"
-    mv "$NVIM_CONFIG_DIR" "$NVIM_CONFIG_DIR.backup"
-end
 
-mkdir -p $NVIM_CONFIG_DIR
 echo "Installing nvim plugins, please wait"
 $NVIM_DIR/bin/nvim -c "autocmd User LazyInstall quitall"  -c "lua require('lazy').install()"
 $NVIM_DIR/bin/nvim -c "PylspInstall pylsp-mypy pyls-isort python-lsp-black python-lsp-ruff"
+$NVIM_DIR/bin/nvim -c "UpdateRemotePlugins"
