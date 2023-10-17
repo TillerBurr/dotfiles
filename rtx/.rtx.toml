@@ -1,11 +1,12 @@
 [tools]
 nodejs=["18", "19"]
-python = "latest"
+python = "3.12.0"
 pnpm='7.30.0'
 poetry = "1.4.0"
 pdm = "latest"
 java = "20.0.2"
 pipx="latest"
+rye="latest"
 
 [plugins]
 # specify a custom repo url
@@ -13,7 +14,7 @@ pipx="latest"
 python = 'https://github.com/jdxcode/rtx-python'
 pnpm ='https://github.com/jonathanmorley/asdf-pnpm'
 poetry='https://github.com/asdf-community/asdf-poetry'
-pdm='https://github.com/1oglop1/asdf-pdm'
+# pdm='https://github.com/1oglop1/asdf-pdm'
 
 
 [settings]

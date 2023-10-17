@@ -33,6 +33,13 @@ local plugin_specs = {
     },
     cond=vscode
   },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {},cond=vscode},
+  {
+    'willothy/moveline.nvim',
+    build = 'make',
+    cond=vscode
+},
+  { "sitiom/nvim-numbertoggle" ,cond=vscode},
   {'romgrk/fzy-lua-native',cond=vscode},
   {
     "nvim-treesitter/nvim-treesitter",
@@ -41,12 +48,22 @@ local plugin_specs = {
     build = ":TSUpdate",
     cond=vscode
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+},
   { 'neovim/nvim-lspconfig',cond=vscode },
   { 'williamboman/mason.nvim',cond=vscode },
   { 'williamboman/mason-lspconfig.nvim',cond=vscode },
   {'b0o/mapx.nvim'},
 
-  -- Autocompletion
+
   { 'hrsh7th/nvim-cmp',cond=vscode},
   { 'hrsh7th/cmp-nvim-lsp',cond=vscode },
   { 'hrsh7th/cmp-buffer',cond=vscode },
@@ -82,6 +99,8 @@ local plugin_specs = {
       end
     end,
   },
+  {"nvim-pack/nvim-spectre",dependencies = {
+      "nvim-lua/plenary.nvim"}},
   { "nvim-lua/plenary.nvim"},
   {
     "nvim-telescope/telescope.nvim",
@@ -138,9 +157,17 @@ local plugin_specs = {
   { "Raimondi/delimitMate",      event = "InsertEnter" ,cond=vscode,},
 
   -- Comment plugin
-  { "tpope/vim-commentary",      event = "VeryLazy" ,cond=vscode},
-
-
+  -- { "tpope/vim-commentary",      event = "VeryLazy" ,cond=vscode},
+{
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options here
+    },
+    config=function()
+        require('Comment').setup()
+    end,
+    lazy = false,
+},
   -- better UI for some nvim actions
   { "stevearc/dressing.nvim",cond=vscode },
 
@@ -174,10 +201,10 @@ cond=vscode
   },
 
   -- Another markdown plugin
-  { "preservim/vim-markdown",           ft = { "markdown" } ,cond=vscode},
+  -- { "preservim/vim-markdown",           ft = { "markdown" } ,cond=vscode},
 
   -- Faster footnote generation
-  { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" }, cond=vscode },
+  -- { "vim-pandoc/vim-markdownfootnotes", ft = { "markdown" }, cond=vscode },
 
   {
     "folke/trouble.nvim",

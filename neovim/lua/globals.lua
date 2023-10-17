@@ -21,6 +21,7 @@ vim.g.python3_host_prog = "/home/tbaur/tools/.venv/bin/python"
 
 -- Custom mapping <leader> (see `:h mapleader` for more info)
 vim.g.mapleader                = " "
+vim.g.maplocalleader           = " "
 -- Enable highlighting for lua HERE doc inside vim script
 vim.g.vimsyn_embed             = 'l'
 vim.wo.number                  = true

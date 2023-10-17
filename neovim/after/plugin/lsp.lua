@@ -25,7 +25,7 @@ local pylsp_config = {
     pylsp = {
       plugins = {
         -- formatter options
-        black = { enabled = true },
+        -- black = { enabled = true },
         autopep8 = { enabled = false },
         yapf = { enabled = false },
         -- linter options
@@ -52,6 +52,7 @@ local pylsp_config = {
 }
 local luasnip = require("luasnip")
 local cmp = require('cmp')
+
 
 cmp.setup({
   window = {
@@ -148,11 +149,23 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp' },
+  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp','yamlls' },
   handlers = {
     lsp_zero.default_setup,
     pylsp = function()
       lspconfig.pylsp.setup(pylsp_config)
+    end,
+    yamlls = function()
+        lspconfig.yamlls.setup({
+            settings={
+                yaml={
+                    schemas={
+                        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                        ["https://squidfunk.github.io/mkdocs-material/schema.json"]="mkdocs.yml"
+                }
+                }
+        }
+    })
     end
   },
 })

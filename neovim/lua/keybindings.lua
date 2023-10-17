@@ -2,6 +2,8 @@ local keymap = vim.keymap
 local api = vim.api
 local uv = vim.loop
 
+keymap.set("n",";",":",{ desc = "Command Mode" })
+keymap.set("n",";;",";",{desc = "semi-colon"})
 keymap.set("n","<leader>bd","<cmd>:bd<CR>",{ desc = "Delete current buffer" })
 keymap.set("n","<leader>b","<cmd> :ls<CR>:b <Space>",{ desc = "Go to Buffer" })
 keymap.set("n","<F9>","<cmd>:bp<cr>",{ desc = "Prev Buffer" })
