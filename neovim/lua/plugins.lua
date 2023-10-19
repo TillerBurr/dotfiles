@@ -39,6 +39,8 @@ local plugin_specs = {
     build = 'make',
     cond=vscode
 },
+{"MunifTanjim/prettier.nvim",cond=vscode},
+{"nvimtools/none-ls.nvim",cond=vscode},
   { "sitiom/nvim-numbertoggle" ,cond=vscode},
   {'romgrk/fzy-lua-native',cond=vscode},
   {
@@ -113,7 +115,7 @@ local plugin_specs = {
     },
   },
   { "rose-pine/neovim",          name = "rose-pine",  lazy = true,cond=vscode },
-  { "olimorris/onedarkpro.nvim", name = "onedarkpro", lazy = true,cond=vscode },
+  { "olimorris/onedarkpro.nvim", name = "onedarkpro", priority = 1000,cond=vscode },
 
   { 'yamatsum/nvim-cursorline',cond=vscode },
   {
@@ -144,7 +146,7 @@ local plugin_specs = {
 },
   { 'ThePrimeagen/vim-be-good' },
   -- Highlight URLs inside vim
-  { "itchyny/vim-highlighturl", event = "VeryLazy",cond=vscode },
+  -- { "itchyny/vim-highlighturl", event = "VeryLazy",cond=vscode },
 
   -- notification plugin
   {

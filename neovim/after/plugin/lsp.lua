@@ -149,7 +149,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp','yamlls' },
+  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp','yamlls','marksman' },
   handlers = {
     lsp_zero.default_setup,
     pylsp = function()
@@ -166,6 +166,9 @@ require('mason-lspconfig').setup({
                 }
         }
     })
+    end,
+    marksman = function()
+        lspconfig.marksman.setup({})
     end
   },
 })

@@ -2,9 +2,7 @@
 --
 -- Author: Jiedong Hao
 -- Email: jdhao@hotmail.com
--- Blog: https://jdhao.github.io/
 -- GitHub: https://github.com/jdhao
--- StackOverflow: https://stackoverflow.com/users/6064933/jdhao
 vim.loader.enable()
 
 local version = vim.version
@@ -35,7 +33,7 @@ for _, file_name in ipairs(core_conf_files) do
 end
 if not vim.g.vscode then
 
-    vim.cmd("colorscheme rose-pine")
+    vim.cmd("colorscheme rose-pine-moon")
 else
 vim.api.nvim_exec([[
     " THEME CHANGER
