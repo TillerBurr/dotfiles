@@ -19,8 +19,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
-
+local is_win = vim.fn.has('Windows')
+local vscode_or_windows=function()
+    if vim.g.vscode or is_win then
+        return false
+    else
+        return true 
+    end
+end
 local plugin_specs = {
   -- auto-completion engine
   {
@@ -37,7 +43,7 @@ local plugin_specs = {
   {
     'willothy/moveline.nvim',
     build = 'make',
-    cond=vscode
+    cond=vscode_or_windows
 },
 {"MunifTanjim/prettier.nvim",cond=vscode},
 {"nvimtools/none-ls.nvim",cond=vscode},
