@@ -19,7 +19,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local is_win = vim.fn.has('Windows')
+local is_win = vim.loop.os_uname().version:match("Windows")
 local vscode_or_windows=function()
     if vim.g.vscode or is_win then
         return false
@@ -45,10 +45,29 @@ local plugin_specs = {
     build = 'make',
     cond=vscode_or_windows
 },
+{ "kkharji/sqlite.lua" },-- Lua
+{"gbprod/yanky.nvim",
+config=function()
+    require("yanky").setup({
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    }) end,
+requires={"kkharji/sqlite.lua"}},
+{
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+},
 {"MunifTanjim/prettier.nvim",cond=vscode},
 {"nvimtools/none-ls.nvim",cond=vscode},
   { "sitiom/nvim-numbertoggle" ,cond=vscode},
   {'romgrk/fzy-lua-native',cond=vscode},
+  { 
+    'smoka7/hop.nvim',
+    version = "*",
+    opts = {},},
   {
     "nvim-treesitter/nvim-treesitter",
     enabled = true,

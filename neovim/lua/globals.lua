@@ -12,7 +12,8 @@ vim.g.loaded_ruby_provider = 0      -- Disable ruby provider
 vim.g.loaded_node_provider = 0      -- Disable node provider
 vim.g.did_install_default_menus = 1 -- do not load menu
 
-if vim.fn.has("Windows") then
+if vim.loop.os_uname().version:match("Windows") then
+    	vim.api.nvim_err_writeln("Windows Detected.")
     vim.g.python3_host_prog="~/tools/.venv/Scripts/python.exe"
 else
     

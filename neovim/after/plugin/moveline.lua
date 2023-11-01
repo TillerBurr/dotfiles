@@ -1,4 +1,4 @@
-local is_win = vim.fn.has('Windows')
+local is_win = vim.loop.os_uname().version:match("Windows")
 local vscode_or_windows=function()
     if vim.g.vscode or is_win then
         return false

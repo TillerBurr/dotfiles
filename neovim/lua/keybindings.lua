@@ -2,13 +2,14 @@ local keymap = vim.keymap
 local api = vim.api
 local uv = vim.loop
 
+keymap.set("t","<C-d>","<C-\\><C-n>")
 keymap.set("n",";",":",{ desc = "Command Mode" })
 keymap.set("n",";;",";",{desc = "semi-colon"})
 keymap.set("n","<leader>bd","<cmd>:bd<CR>",{ desc = "Delete current buffer" })
 keymap.set("n","<leader>b","<cmd> :ls<CR>:b <Space>",{ desc = "Go to Buffer" })
 keymap.set("n","<F9>","<cmd>:bp<cr>",{ desc = "Prev Buffer" })
 keymap.set("n","<F10>","<cmd>:bn<cr>",{ desc = "Next Buffer" })
-keymap.set("n","lg","<cmd>:LazyGit<cr>",{ desc = "Open LazyGit" })
+keymap.set("n","<leader>lg","<cmd>:LazyGit<cr>",{ desc = "Open LazyGit" })
 
 keymap.set("n", "<leader>xx", function() require("trouble").open() end,{ desc = "trouble open" })
 keymap.set("n", "<leader>xw", function() require("trouble").open("workspace_diagnostics") end,{ desc = "workspace diagnostics" })
