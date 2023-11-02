@@ -13,9 +13,8 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.undofile = true
 local uname = vim.loop.os_uname()
-_G.IS_WINDOWS = vim.fn.has('Windows')
+_G.IS_WINDOWS = vim.loop.os_uname().version:match('Windows')
 if not _G.IS_WINDOWS then
-    
     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 end
 vim.opt.incsearch = true
@@ -27,5 +26,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 
- vim.opt.colorcolumn = "89"
- vim.opt.clipboard:append("unnamedplus")
+vim.opt.colorcolumn = "89"

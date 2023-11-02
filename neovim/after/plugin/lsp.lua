@@ -17,23 +17,17 @@ local pylsp_config = {
   settings = {
     pylsp = {
       plugins = {
-        -- formatter options
-        -- black = { enabled = true },
         autopep8 = { enabled = false },
         yapf = { enabled = false },
-        -- linter options
         pylint = { enabled = false },
         ruff = { enabled = false },
-        -- type checker
         pylsp_mypy = {
           enabled = true,
           report_progress = true,
           live_mode = false
         },
-        -- auto-completion options
         jedi_completion = { fuzzy = true },
-        -- import sorting
-        isort = { enabled = true },
+        isort = { enabled = false},
       },
     },
   },
@@ -111,7 +105,7 @@ cmp.setup({
 })
 
 lsp_zero.set_preferences({
-  suggest_lsp_servers = false,
+  suggest_lsp_servers = true,
   sign_icons = {
     error = '🆇',
     warn = '⚠️',
@@ -162,7 +156,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp','yamlls','marksman','ruff_lsp' },
+  ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp','yamlls','marksman','ruff_lsp','lua_ls' },
   handlers = {
     lsp_zero.default_setup,
     pylsp = function()

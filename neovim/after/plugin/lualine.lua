@@ -1,4 +1,4 @@
-require('lualine').setup {
+require'lualine'.setup {
     options = {
         theme = 'onedark',
         section_separators = { left = '', right = '' },

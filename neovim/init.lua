@@ -1,22 +1,5 @@
--- Heavily borrowed from:
---
--- Author: Jiedong Hao
--- Email: jdhao@hotmail.com
--- GitHub: https://github.com/jdhao
 vim.loader.enable()
 
-local version = vim.version
-
--- check if we have the latest stable version of nvim
-local expected_ver = "0.9.2"
-local ev = version.parse(expected_ver)
-local actual_ver = version()
-
-if version.cmp(ev, actual_ver) ~= 0 then
-  local _ver = string.format("%s.%s.%s", actual_ver.major, actual_ver.minor, actual_ver.patch)
-  local msg = string.format("Expect nvim %s, but got %s instead. Use at your own risk!", expected_ver, _ver)
-  vim.api.nvim_err_writeln(msg)
-end
 vim.g.python3_host_prog = '/home/tbaur/tools/nvim_python/bin/python'
 local core_conf_files = {
   "globals.lua",     -- some global settings
@@ -35,27 +18,27 @@ if not vim.g.vscode then
 
     vim.cmd("colorscheme rose-pine-moon")
 else
-vim.api.nvim_exec([[
+    vim.api.nvim_exec([[
     " THEME CHANGER
     function! SetCursorLineNrColorInsert(mode)
-        " Insert mode: blue
-        if a:mode == "i"
-            call VSCodeNotify('nvim-theme.insert')
+    " Insert mode: blue
+    if a:mode == "i"
+        call VSCodeNotify('nvim-theme.insert')
 
         " Replace mode: red
-        elseif a:mode == "r"
-            call VSCodeNotify('nvim-theme.replace')
-        endif
+    elseif a:mode == "r"
+        call VSCodeNotify('nvim-theme.replace')
+    endif
     endfunction
 
-    augroup CursorLineNrColorSwap
+        augroup CursorLineNrColorSwap
         autocmd!
         autocmd ModeChanged *:[vV\x16]* call VSCodeNotify('nvim-theme.visual')
         autocmd ModeChanged *:[R]* call VSCodeNotify('nvim-theme.replace')
         autocmd InsertEnter * call SetCursorLineNrColorInsert(v:insertmode)
         autocmd InsertLeave * call VSCodeNotify('nvim-theme.normal')
         autocmd CursorHold * call VSCodeNotify('nvim-theme.normal')
-    augroup END
+        augroup END
 ]], false)
     
 end
