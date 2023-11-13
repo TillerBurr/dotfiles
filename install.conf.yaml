@@ -50,7 +50,10 @@
           path: neovim/after
           create: true
           force: true
-
+      ~/.tmux.conf: .tmux.conf
+      ~/.local/bin/tmux-sessionizer:
+          path: tmux-sessionizer
+          create: true
 
 
 - shell:
@@ -76,5 +79,8 @@
         stdout: true
       - command: cp .gitconfig-local ${HOME}/.gitconfig-local
       - command: fish ./neovim/install.fish
+        stdout: true
+        stderr: true
+      - command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         stdout: true
         stderr: true

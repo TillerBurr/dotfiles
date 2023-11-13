@@ -53,7 +53,8 @@ apt install -y git \
               file \
               unzip \
               pinentry-gtk2 \
-              fuse
+              fuse \
+              fd-find
 
 echo $(which fish) | tee -a /etc/shells
 

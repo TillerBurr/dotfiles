@@ -28,6 +28,40 @@ local vscode_or_windows = function()
     end
 end
 local plugin_specs = {
+    {
+        'mfussenegger/nvim-dap',
+        dependencies = {
+            'rcarriga/nvim-dap-ui',
+            'williamboman/mason.nvim',
+            'jay-babu/mason-nvim-dap.nvim',
+            'mfussenegger/nvim-dap-python'
+
+        },
+
+    },
+    {
+        'mfussenegger/nvim-dap-python',
+        config = function()
+            local path = require("mason-registry").get_package('debugpy'):get_install_path()
+            require("dap-python").setup(path .. "/venv/bin/python")
+        end,
+    },
+    {
+    "linux-cultist/venv-selector.nvim",
+    dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+    opts = {
+        -- Your options go here
+        -- name = "venv",
+        -- auto_refresh = false
+    },
+    event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
+    keys = {
+        -- Keymap to open VenvSelector to pick a venv.
+        { "<leader>vs", "<cmd>VenvSelect<cr>" },
+        -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
+        { "<leader>vc", "<cmd>VenvSelectCached<cr>" },
+    }
+},
     -- auto-completion engine
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -55,7 +89,7 @@ local plugin_specs = {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-    { "sitiom/nvim-numbertoggle",           cond = vscode },
+    { "sitiom/nvim-numbertoggle", cond = vscode },
     -- { 'romgrk/fzy-lua-native',               cond = vscode },
     {
         'smoka7/hop.nvim',
@@ -81,8 +115,12 @@ local plugin_specs = {
     },
     { 'theprimeagen/harpoon' },
     { 'mbbill/undotree' },
-    { 'neovim/nvim-lspconfig',              cond = vscode },
-    { 'williamboman/mason.nvim',            cond = vscode },
+    { 'neovim/nvim-lspconfig',    cond = vscode },
+    {
+        'williamboman/mason.nvim',
+        config = function() require('mason').setup({ log_level = vim.log.levels.DEBUG }) end,
+        cond = vscode
+    },
     { 'williamboman/mason-lspconfig.nvim',  cond = vscode },
     -- { 'b0o/mapx.nvim' },
 
@@ -152,12 +190,12 @@ local plugin_specs = {
     -- },
     { 'ThePrimeagen/vim-be-good' },
     -- notification plugin
-    -- {
-    --     "rcarriga/nvim-notify",
-    --     event = "VeryLazy",
-    --     cond = vscode
-    -- },
-    --
+    {
+        "rcarriga/nvim-notify",
+        event = "VeryLazy",
+        cond = vscode
+    },
+
 
     -- Automatic insertion and deletion of a pair of characters
     { "Raimondi/delimitMate",    event = "InsertEnter", cond = vscode, },
@@ -175,10 +213,6 @@ local plugin_specs = {
 
     { "nvim-zh/better-escape.vim", event = { "InsertEnter" }, cond = vscode },
 
-    -- Auto format tools
-    -- { "sbdchd/neoformat",          cmd = { "Neoformat" },     cond = vscode },
-
-    -- Git command inside vim
     {
         "tpope/vim-fugitive",
         event = "User InGitRepo",
