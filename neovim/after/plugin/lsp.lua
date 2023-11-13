@@ -179,6 +179,9 @@ require('mason-lspconfig').setup({
     end,
     ruff_lsp= function()
         lspconfig.ruff_lsp.setup({on_attach=ruff_on_attach})
+    end,
+    rust_analyzer =function()
+        lspconfig.rust_analyzer.setup({})
     end
   },
 })

@@ -8,6 +8,7 @@ fish_add_path -p ~/chromedrivers
 fish_add_path -p ~/tools/lua-language-server/bin
 fish_add_path -p ~/tools/ripgrep
 fish_add_path -p ~/tools/nvim/bin
+fish_add_path -p /.local/share/nvim/mason/bin/
 
 set -gx PIPX_DEFAULT_PYTHON $HOME/.local/share/rtx/installs/python/3.11.4/bin/python
 set -gx DPRINT_INSTALL $HOME/.dprint
