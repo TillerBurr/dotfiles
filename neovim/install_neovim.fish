@@ -7,14 +7,19 @@ if test -f "$NVIM_DIR/bin/nvim"
     rm -rf $NVIM_DIR
 
 end
+
 mkdir $NVIM_DIR
 echo "Installing Nvim"
 echo "Creating nvim directory under tools directory"
-if not test -f $NVIM_SRC_NAME
-    echo "Downloading Nvim"
-    wget "$NVIM_LINK" -O "$NVIM_SRC_NAME"
+if test -f $NVIM_SRC_NAME
+    rm $NVIM_SRC_NAME
 end
-echo "Extracting neovim"
-tar zxvf "$NVIM_SRC_NAME" --strip-components 1 -C "$NVIM_DIR"
+echo "Downloading Nvim"
+wget "$NVIM_LINK" -O "$NVIM_SRC_NAME"
+if test -f $NVIM_SRC_NAME
+
+    echo "Extracting neovim"
+    tar zxvf "$NVIM_SRC_NAME" --strip-components 1 -C "$NVIM_DIR"
+end
 
 
