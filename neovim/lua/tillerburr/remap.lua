@@ -1,6 +1,5 @@
+
 local keymap = vim.keymap
-local api = vim.api
-local uv = vim.loop
 
 keymap.set("t", "<C-d>", "<C-\\><C-n>")
 keymap.set("n", "<leader>bd", "<cmd>:bd<CR>", { desc = "Delete current buffer" })

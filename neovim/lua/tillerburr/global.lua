@@ -13,11 +13,10 @@ vim.g.loaded_node_provider = 0      -- Disable node provider
 vim.g.did_install_default_menus = 1 -- do not load menu
 
 if vim.loop.os_uname().version:match("Windows") then
-    	vim.api.nvim_err_writeln("Windows Detected.")
-    vim.g.python3_host_prog="~/tools/.venv/Scripts/python.exe"
+    vim.api.nvim_err_writeln("Windows Detected.")
+    vim.g.python3_host_prog = "~/tools/.venv/Scripts/python.exe"
 else
-    
-vim.g.python3_host_prog = "~/tools/.venv/bin/python"
+    vim.g.python3_host_prog = "~/tools/.venv/bin/python"
 end
 -- Specify server commands for LanguageClient
 
@@ -74,15 +73,15 @@ vim.g.loaded_sql_completion    = 1
 -- }
 
 -- vim.g.clipboard=unnamedplus
-vim.g.clipboard = {
-           name= 'win32yank_nvim',
-           copy= {
-              ['+']= 'win32yank.exe -i --crlf',
-              ['*']= 'win32yank.exe -i --crlf',
-            },
-           paste= {
-              ['+']= 'win32yank.exe -o --lf',
-              ['*']= 'win32yank.exe -o --lf',
-           },
-           cache_enabled= 0,
-         }
+vim.g.clipboard                = {
+    name = 'win32yank_nvim',
+    copy = {
+        ['+'] = 'win32yank.exe -i --crlf',
+        ['*'] = 'win32yank.exe -i --crlf',
+    },
+    paste = {
+        ['+'] = 'win32yank.exe -o --lf',
+        ['*'] = 'win32yank.exe -o --lf',
+    },
+    cache_enabled = 0,
+}
