@@ -72,6 +72,11 @@ return {
                 },
                 capabilities = capabilities,
             }
+
+            local on_attach_restrained = function(client, buffer)
+                client.server_capabilities.documentFormattingProvider = false
+            end
+
             local luasnip = require("luasnip")
             local cmp = require('cmp')
             local lspkind = require('lspkind')
@@ -227,7 +232,7 @@ return {
                 -- Enable completion triggered by <c-x><c-o>
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
-            local ruff_on_attach = function(_, bufnr)
+            local ruff_on_attach = function(client, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
                 -- Mappings.
@@ -242,17 +247,42 @@ return {
                 end, bufopts)
                 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
                 -- vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+                client.server_capabilities.hoverProvider = false
+                client.server_capabilities.signatureHelpProvider = false
             end
             require("mason").setup({})
             require('mason-lspconfig').setup({
                 -- Replace the language servers listed here
                 -- with the ones you want to install
-                ensure_installed = { 'tsserver', 'rust_analyzer', 'pylsp', 'yamlls', 'marksman', 'ruff_lsp', 'lua_ls' },
+                ensure_installed = { 'tsserver', 'rust_analyzer', 'pyright', 'yamlls', 'marksman', 'ruff_lsp', 'lua_ls' },
                 handlers = {
                     lsp_zero.default_setup,
-                    pylsp = function()
-                        lspconfig.pylsp.setup(pylsp_config)
-                    end,
+                    -- pylsp = function()
+                    --     lspconfig.pylsp.setup(pylsp_config)
+                    -- end,
+                    pyright = lspconfig.pyright.setup({
+                        on_attach = on_attach_restrained,
+                        capabilities = {
+                            textDocument = {
+                                publishDiagnostics = {
+                                    tagSupport = {
+                                        valueSet = { 2 },
+                                    },
+                                },
+                            },
+                        },
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    diagnosticMode = "openFilesOnly",
+                                    --                     diagnosticSeverityOverrides = {
+                                    --   reportUnusedVariable = "debug", -- or anything
+                                    -- },
+                                }
+                            }
+                        }
+                    }),
                     yamlls = function()
                         lspconfig.yamlls.setup({
                             settings = {
