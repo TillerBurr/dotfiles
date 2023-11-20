@@ -8,14 +8,29 @@ return { {
     },
     dependencies = {
         "echasnovski/mini.comment",
-        -- "hkupty/iron.nvim", -- repl provider 
-        -- "akinsho/toggleterm.nvim", -- alternative repl provider
         "benlubas/molten-nvim",
+        'anuvyklack/hydra.nvim'
+        -- "3rd/image.nvim"
     },
     event = "VeryLazy",
     config = function()
         local nn = require "notebook-navigator"
-        nn.setup({ activate_hydra_keys = "<leader>h", repl_provider = "molten"})
+        nn.setup({ activate_hydra_keys = "<leader>h", repl_provider = "molten" })
+        -- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua;"
+        -- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua;"
+        -- require("image").setup({
+        --     backend="kitty",
+        --     integrations = {
+        --         markdown = {
+        --             enabled = true,
+        --             clear_in_insert_mode = false,
+        --             download_remote_images = true,
+        --             only_render_image_at_cursor = false,
+        --             filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+        --         },
+        --     },
+        --     hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp" }, -- render image files as images when opened
+        -- })
     end,
 },
     {

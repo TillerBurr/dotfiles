@@ -2,3 +2,4 @@ aws*
 *.deb
 /aws
 lazygit*
+*.tar.gz
