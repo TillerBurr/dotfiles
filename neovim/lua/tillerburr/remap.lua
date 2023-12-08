@@ -1,4 +1,3 @@
-
 local keymap = vim.keymap
 
 keymap.set("t", "<C-d>", "<C-\\><C-n>")
@@ -40,3 +39,6 @@ keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 keymap.set("n", "<leader>ra", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("t", "<Esc>","<C-\\><C-n>")
+keymap.set("n", "<leader>O", "mzO<Esc>`z", { desc = "add blank line above" })
+keymap.set("n", "<leader>o", "mzo<Esc>`z", { desc = "add blank line below" })

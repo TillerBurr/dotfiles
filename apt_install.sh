@@ -54,7 +54,16 @@ apt install -y git \
               unzip \
               pinentry-gtk2 \
               fuse \
-              fd-find
+              fd-find \
+              lua5.4 \
+              luarocks \
+              libpng-dev \
+              libjpeg-dev \
+              libtiff-dev \
+              libgif-dev \
+              libfreetype6-dev \
+              liblcms2-dev \
+              libxml2-dev
 
 echo $(which fish) | tee -a /etc/shells
 

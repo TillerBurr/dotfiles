@@ -174,9 +174,9 @@ style = 'bg:#62D7FD fg:#2C3E50'
 format = '[ $symbol ($version) ]($style)'
 
 [battery]
-charging_symbol = "  "
-discharging_symbol = "  "
-full_symbol = "  "
+charging_symbol = " ⚡ "
+discharging_symbol = " 🪫 "
+full_symbol = " 🔋 "
 
 [[battery.display]]
 style = "bold red"
