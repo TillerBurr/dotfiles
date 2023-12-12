@@ -1,4 +1,7 @@
+#! /usr/bin/fish
 #run this after rtx is installed
+
+
 
 
 if not test -d "$HOME/packages/"
@@ -20,10 +23,11 @@ set PY_EXE (string split ")" (string split "(" $RYE_TOOLCHAIN)[2])[1]
 
 
 $PY_EXE -m venv $NVIM_PYTHON_DIR/.venv
-set -a PY_PACKAGES "pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip"
+set  PY_PACKAGES pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat
 
 echo "Installing Python packages"
 for p in $PY_PACKAGES
+echo "Installing $p"
     $NVIM_PYTHON_DIR/.venv/bin/python -m pip install "$p"
 end
 
@@ -91,6 +95,9 @@ set NVIM_DIR $HOME/tools/nvim
 set NVIM_SRC_NAME $HOME/packages/nvim-linux64.tar.gz
 set NVIM_CONFIG_DIR $HOME/.config/nvim
 set NVIM_LINK "https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz"
+if not test -d $NVIM_DIR
+    mkdir $NVIM_DIR
+end
 if not test -f "$NVIM_DIR/bin/nvim"
     echo "Installing Nvim"
     echo "Creating nvim directory under tools directory"

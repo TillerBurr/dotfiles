@@ -12,6 +12,7 @@ return { {
         'anuvyklack/hydra.nvim'
         -- "3rd/image.nvim"
     },
+    ft = { "python", ".ipynb" },
     event = "VeryLazy",
     config = function()
         local nn = require "notebook-navigator"
@@ -37,6 +38,7 @@ return { {
         "benlubas/molten-nvim",
         version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
         build = ":UpdateRemotePlugins",
+        ft = { "python", ".ipynb" },
         -- init = function()
         --     vim.g.molten_virt_text_output = true
         -- end
