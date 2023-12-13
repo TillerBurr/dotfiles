@@ -27,6 +27,8 @@ end
 set -x UID $(id -u)
 set -x GID $(id -g)
 set -x UNAME $(whoami)
+set -U autovenv_enable yes
+set -U autovenv_announce yes
 
 starship init fish | source
 scheme set default
