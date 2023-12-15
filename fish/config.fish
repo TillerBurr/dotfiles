@@ -13,6 +13,7 @@ fish_add_path -p ~/.local/share/nvim/mason/bin/
 set -gx PIPX_DEFAULT_PYTHON $HOME/.local/share/rtx/installs/python/3.11.4/bin/python
 set -gx DPRINT_INSTALL $HOME/.dprint
 
+set -Ux fish_tmux_unicode true
 alias vim nvim
 
 if test -d $HOME/.pyenv
@@ -24,6 +25,7 @@ if test -e ~/.private
 end
 # eval (aactivator init)
 
+set -U fish_greeting "🐟"
 set -x UID $(id -u)
 set -x GID $(id -g)
 set -x UNAME $(whoami)
@@ -31,7 +33,7 @@ set -U autovenv_enable yes
 set -U autovenv_announce yes
 
 starship init fish | source
-scheme set default
+#scheme set default
 set -x RTX_CONFIG_FILE $HOME/.config/.rtx.toml
 $HOME/.local/share/rtx/bin/rtx activate -s fish | source
 

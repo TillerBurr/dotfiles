@@ -63,12 +63,14 @@ apt install -y git \
               libgif-dev \
               libfreetype6-dev \
               liblcms2-dev \
-              libxml2-dev
+              libxml2-dev \
+              ansible
 
 echo $(which fish) | tee -a /etc/shells
 
 
 usermod --shell /usr/bin/fish $USER
+chsh -s /usr/bin/fish $(whoami)
 
 if command -v google-chrome-stable >/dev/null 2>&1; then
     echo "Chrome already installed."

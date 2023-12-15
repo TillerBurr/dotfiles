@@ -68,9 +68,9 @@
       - command: curl -fsSL https://dprint.dev/install.sh | sh
         stderr: true
         stdout: true
-       - command: curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
-         stderr: true
-         stdout: true
+      - command: curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
+        stderr: true
+        stdout: true
       - command: ./rtx/install.sh
         stderr: true
         stdout: true
@@ -84,3 +84,6 @@
       - command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         stdout: true
         stderr: true
+      - command: luarocks --local install magick
+
+      - command: cp ./.wezterm.lua /mnt/c/Users/tbaur/.wezterm.lua
