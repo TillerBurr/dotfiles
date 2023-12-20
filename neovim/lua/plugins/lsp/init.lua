@@ -49,31 +49,8 @@ return {
                     info = '💡'
                 }
             })
-            local pylsp_config = {
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            autopep8 = { enabled = false },
-                            yapf = { enabled = false },
-                            pylint = { enabled = false },
-                            ruff = { enabled = false },
-                            pylsp_mypy = {
-                                enabled = true,
-                                report_progress = true,
-                                live_mode = false
-                            },
-                            jedi_completion = { fuzzy = true },
-                            isort = { enabled = false },
-                        },
-                    },
-                },
-                flags = {
-                    debounce_text_changes = 200,
-                },
-                capabilities = capabilities,
-            }
 
-            local on_attach_restrained = function(client, buffer)
+            local on_attach_restrained = function(client, _)
                 client.server_capabilities.documentFormattingProvider = false
             end
 
@@ -152,6 +129,7 @@ return {
                 sources = {
                     { name = "codeium" },
                     { name = "nvim_lsp" },
+                    { name = "nvim_lua" },
                     { name = "luasnip" },
                     { name = "path" },                        -- for path completion
                     { name = "buffer",  keyword_length = 2 }, -- for buffer word completion
@@ -216,7 +194,6 @@ return {
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 local opts = { buffer = bufnr, remap = false }
-
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
                 vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -229,6 +206,7 @@ return {
                 vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
                 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, { desc = "format code" })
                 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+
                 -- Enable completion triggered by <c-x><c-o>
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
@@ -254,12 +232,10 @@ return {
             require('mason-lspconfig').setup({
                 -- Replace the language servers listed here
                 -- with the ones you want to install
-                ensure_installed = { 'tsserver', 'rust_analyzer', 'pyright', 'yamlls', 'marksman', 'ruff_lsp', 'lua_ls' },
+                ensure_installed = { 'tsserver', 'pyright', 'yamlls', 'marksman', 'ruff_lsp', 'lua_ls', 'rust_analyzer' },
                 handlers = {
                     lsp_zero.default_setup,
-                    -- pylsp = function()
-                    --     lspconfig.pylsp.setup(pylsp_config)
-                    -- end,
+                    lua_ls = lspconfig.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }),
                     pyright = lspconfig.pyright.setup({
                         on_attach = on_attach_restrained,
                         capabilities = {
@@ -302,21 +278,28 @@ return {
                         lspconfig.ruff_lsp.setup({ on_attach = ruff_on_attach })
                     end,
                     rust_analyzer = function()
-                        lspconfig.rust_analyzer.setup({})
+                        --     -- lspconfig.rust_analyzer.setup({})
+                        local codelldb = require('plugins.lsp.codelldb')
+                        require("rust-tools").setup(codelldb.opts)
+                        require("dap").adapters.codelldb = codelldb.adapter
                     end
                 },
             })
         end
-    }
-    , {
-    "Exafunction/codeium.nvim",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
     },
-    config = function()
-        require("codeium").setup({})
-    end
-}
+    {
+        "simrat39/rust-tools.nvim",
+        dependencies = { { "mfussenegger/nvim-dap" }, { 'nvim-lua/plenary.nvim' } },
+    },
+    {
+        "Exafunction/codeium.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({})
+        end
+    }
 
 }

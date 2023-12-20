@@ -23,7 +23,7 @@ set PY_EXE (string split ")" (string split "(" $RYE_TOOLCHAIN)[2])[1]
 
 
 $PY_EXE -m venv $NVIM_PYTHON_DIR/.venv
-set  PY_PACKAGES pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat
+set  PY_PACKAGES pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat debugpy
 
 echo "Installing Python packages"
 for p in $PY_PACKAGES
@@ -121,3 +121,5 @@ echo "Installing nvim plugins, please wait"
 $NVIM_DIR/bin/nvim -c "autocmd User LazyInstall quitall"  -c "lua require('lazy').install()"
 $NVIM_DIR/bin/nvim -c "PylspInstall pylsp-mypy pyls-isort python-lsp-black python-lsp-ruff"
 $NVIM_DIR/bin/nvim -c "UpdateRemotePlugins"
+
+./download_lldb.fish
