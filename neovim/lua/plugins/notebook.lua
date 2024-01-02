@@ -1,5 +1,5 @@
 return { {
-    dir = "~/code/NotebookNavigator.nvim",
+     "GCBallesteros/NotebookNavigator.nvim",
     keys = {
         { "]h",        function() require("notebook-navigator").move_cell "d" end },
         { "[h",        function() require("notebook-navigator").move_cell "u" end },
@@ -8,7 +8,8 @@ return { {
     },
     dependencies = {
         "echasnovski/mini.comment",
-        "benlubas/molten-nvim",
+        -- "benlubas/molten-nvim",
+        { dir = "~/code/molten-nvim" },
         'anuvyklack/hydra.nvim'
         -- "3rd/image.nvim"
     },
@@ -35,11 +36,14 @@ return { {
     end,
 },
     {
-        "benlubas/molten-nvim",
+        -- "benlubas/molten-nvim",
+        dir = "~/code/molten-nvim",
         version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
         build = ":UpdateRemotePlugins",
         ft = { "python", ".ipynb" },
-        -- init = function()
-        --     vim.g.molten_virt_text_output = true
-        -- end
+        init = function()
+            -- vim.g.molten_virt_text_output = true
+            vim.g.molten_output_win_offset =-1
+            -- vim.g.molten_virt_lines_off_by_1 = true
+        end
     } }
