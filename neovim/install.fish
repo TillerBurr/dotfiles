@@ -1,5 +1,5 @@
 #! /usr/bin/fish
-#run this after rtx is installed
+#run this after mise is installed
 
 
 
@@ -32,7 +32,7 @@ echo "Installing $p"
 end
 
 
-set NODE_DIR ($HOME/.local/share/rtx/bin/rtx where node@19)
+set NODE_DIR ($HOME/.local/share/mise/bin/mise where node@19)
 $NODE_DIR/bin/npm install -g vim-language-server
 $NODE_DIR/bin/npm install -g bash-language-server
 

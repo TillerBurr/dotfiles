@@ -34,7 +34,7 @@
           path: fish/functions/mkcd.fish
           create: true
       ~/.config/starship.toml: starship.toml
-      ~/.config/.rtx.toml: rtx/.rtx.toml
+      ~/.config/.mise.toml: mise/.mise.toml
       ~/.config/nano/nanorc:
           path: nanorc
           create: true
@@ -54,7 +54,7 @@
       ~/.local/bin/tmux-sessionizer:
           path: tmux-sessionizer
           create: true
-      ~/.config/lazygit/config.yml: 
+      ~/.config/lazygit/config.yml:
           path: lazygit.lua
           create: true
 
@@ -65,7 +65,7 @@
       - command: ./rust/install_rust.sh
         stdout: true
         stderr: true
-      - command: curl https://rtx.pub/install.sh | sh
+      - command: curl https://mise.pub/install.sh | sh
         stderr: true
         stdout: true
       - command: curl -fsSL https://dprint.dev/install.sh | sh
@@ -74,7 +74,7 @@
       # - command: curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
       #   stderr: true
       #   stdout: true
-      - command: ./rtx/install.sh
+      - command: ./mise/install.sh
         stderr: true
         stdout: true
       - command: fish ./fish/install.fish

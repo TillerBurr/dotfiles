@@ -58,30 +58,13 @@ vim.g.loaded_matchparen        = 1
 
 -- Disable sql omni completion, it is broken.
 vim.g.loaded_sql_completion    = 1
--- Define the clipboard settings
--- vim.g.clipboard = {
---   name = 'WslClipboard',
---   copy = {
---     ['+'] = 'clip.exe',
---     ['*'] = 'clip.exe',
---   },
---   paste = {
---     ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---     ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---   },
---   cache_enabled = 0,
--- }
 
--- vim.g.clipboard=unnamedplus
-vim.g.clipboard                = {
-    name = 'win32yank_nvim',
-    copy = {
-        ['+'] = 'win32yank.exe -i --crlf',
-        ['*'] = 'win32yank.exe -i --crlf',
-    },
-    paste = {
-        ['+'] = 'win32yank.exe -o --lf',
-        ['*'] = 'win32yank.exe -o --lf',
-    },
-    cache_enabled = 0,
-}
+-- Define the clipboard settings
+vim.cmd([[
+  if system('uname -r') =~ "microsoft"
+    augroup Yank
+    autocmd!
+    autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+    augroup END
+  endif
+]])

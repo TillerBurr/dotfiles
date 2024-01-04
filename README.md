@@ -2,7 +2,7 @@
 
 Dotfiles for Ubuntu, including:
 
-- rtx
+- mise
     - python
     - rust
     - nodejs via nvm
@@ -27,7 +27,7 @@ Dotfiles for Ubuntu, including:
     1. Install wezterm via
 
         ```commandline
-        winget install wezterm 
+        winget install wezterm
         ```
 
         or
@@ -35,10 +35,10 @@ Dotfiles for Ubuntu, including:
         ```commandline
         choco install wezterm
         ```
-        
-        
-        
-        
+
+
+
+
 
 ## TODO
 
