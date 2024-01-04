@@ -35,7 +35,7 @@ set -U autovenv_announce yes
 starship init fish | source
 #scheme set default
 set -x MISE_CONFIG_FILE $HOME/.config/.mise.toml
-$HOME/.local/share/mise/bin/mise activate -s fish | source
+$HOME/.local/bin/mise activate -s fish | source
 
 # source $HOME/.local/git-subrepo/.fish.rc
 fish_add_path -p ~/.rye/shims
