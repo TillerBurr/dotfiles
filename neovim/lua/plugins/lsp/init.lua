@@ -50,7 +50,7 @@ return {
                 }
             })
 
-            local on_attach_restrained = function(client, _)
+            local on_attach_no_format = function(client, _)
                 client.server_capabilities.documentFormattingProvider = false
             end
 
@@ -194,18 +194,20 @@ return {
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 local opts = { buffer = bufnr, remap = false }
-                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
-                vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts)
-                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-                vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-                vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
-                vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-                vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
+                vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts,{desc= "definition"})
+                vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts,{desc= "hover"})
+                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts,{desc= "declaration"})
+                vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts,{desc= "implementation"})
+                vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts,{desc= "workspace symbol"})
+                vim.keymap.set("n", "<leader>e", function() vim.diagnostic.open_float() end, opts,{desc= "open float"})
+                vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts,{desc= "goto next"})
+                vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts,{desc= "goto prev"})
+                vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts,{desc = "code action"})
+                vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts, {desc = "references"})
+                vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts,{desc = "rename"})
+                vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts,{desc = "signature help"})
                 vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, { desc = "format code" })
-                vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+                vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts,{desc = "set loc list"})
 
                 -- Enable completion triggered by <c-x><c-o>
                 lsp_zero.default_keymaps({ buffer = bufnr })
@@ -237,7 +239,7 @@ return {
                     lsp_zero.default_setup,
                     lua_ls = lspconfig.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { 'vim' } } } } }),
                     pyright = lspconfig.pyright.setup({
-                        on_attach = on_attach_restrained,
+                        on_attach = on_attach_no_format,
                         capabilities = {
                             textDocument = {
                                 publishDiagnostics = {
