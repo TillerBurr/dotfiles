@@ -23,7 +23,7 @@ set PY_EXE (string split ")" (string split "(" $RYE_TOOLCHAIN)[2])[1]
 
 
 $PY_EXE -m venv $NVIM_PYTHON_DIR/.venv
-set  PY_PACKAGES pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat debugpy
+set  PY_PACKAGES pynvim jupyter_client cairosvg pnglatex plotly kaleido pyperclip nbformat debugpy ruff
 
 echo "Installing Python packages"
 for p in $PY_PACKAGES
